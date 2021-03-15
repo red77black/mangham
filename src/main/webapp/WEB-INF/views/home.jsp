@@ -117,7 +117,7 @@
 						</div>
 						<div class="mt-2">
 							<div class="form-floating" id="translatedText">
-								<textarea class="form-control" style="height: 250px;" readonly="readonly"
+								<textarea class="form-control" style="height: 250px; background-color: white;" readonly="readonly"
 									placeholder="Leave a comment here" id="translatedText1"></textarea>
 								<!--  <label for="floatingTextarea"></label>-->
 							</div>

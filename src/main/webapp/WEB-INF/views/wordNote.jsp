@@ -44,34 +44,34 @@
 	<!-- content -->
 	<div class="container">
 		<div class="row mt-2" style="background-color: #f8f9fa">
-			<div class="row row-cols-1 row-cols-md-3 g-4 text-center mb-4">
+			<div class="row row-cols-1 row-cols-md-3 g-4 text-center mb-5 mx-auto" style="width: 400px">
 				<div class="col">
 					<div class="card h-100">
 						<div class="card-body">
-							<h5 class="card-title">전체</h5>
+							<h5 class="card-title fw-bold">전체</h5>
 						</div>
 						<div class="card-footer">
-							<small class="text-muted">234</small>
+							<small class="text-muted fw-bolder">234</small>
 						</div>
 					</div>
 				</div>
 				<div class="col">
 					<div class="card h-100">
 						<div class="card-body">
-							<h5 class="card-title">미암기</h5>
+							<h5 class="card-title fw-bold">미암기</h5>
 						</div>
 						<div class="card-footer">
-							<small class="text-muted">233</small>
+							<small class="text-muted fw-bolder">233</small>
 						</div>
 					</div>
 				</div>
 				<div class="col">
 					<div class="card h-100">
 						<div class="card-body">
-							<h5 class="card-title">암기</h5>
+							<h5 class="card-title fw-bolder">암기</h5>
 						</div>
 						<div class="card-footer">
-							<small class="text-muted">1</small>
+							<small class="text-muted fw-bolder">1</small>
 						</div>
 					</div>
 				</div>
