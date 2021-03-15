@@ -24,6 +24,12 @@ import com.sc.it.VO.TextVO;
 public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String index() {
+		
+		return "index";
+	}
+	
+	@RequestMapping(value = "home", method = RequestMethod.GET)
 	public String home() {
 		
 		return "home";
