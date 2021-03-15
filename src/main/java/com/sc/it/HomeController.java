@@ -30,7 +30,7 @@ public class HomeController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="translate", method=RequestMethod.POST)
+	@RequestMapping(value="/translate", method=RequestMethod.POST)
 	public String translate(TextVO vo) {
 		String jsonParse = ""; //JSON 형태로 변환된 문자열
 		String clientId = "AcBWPGZP8jYcpZkyDq_m";//애플리케이션 클라이언트 아이디값";
