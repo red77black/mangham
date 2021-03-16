@@ -116,7 +116,7 @@
                     <span class="red"> -</span> <span> Gender</span>
                 </div>
                 <div class="radio">
-                    <input type="radio" id="s_gender" name="s_gender" checked="checked">  <img src="male.png" id="gendericon" /> <span> 남자 </span>   <input type="radio" id="susoo_gender" name="susoo_gender"> <img src="female.png" id="gendericonF" />  <span> 여자 </span>
+                    <input type="radio" id="s_gender" name="s_gender" checked="checked" value="남자">  <img src="/resources/img/male.png" id="gendericon" /> <span> 남자 </span>   <input type="radio" id="susoo_gender" name="susoo_gender" value="여자"> <img src="/resources/img/female.png" id="gendericonF" />  <span> 여자 </span>
                 </div>
 
                 <!-- 리셋 / 회원가입 -->

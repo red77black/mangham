@@ -25,7 +25,7 @@
           
           <div class="content">
               <header>SuSoo</header>
-              <form action="#">
+              <form action="/user/login" method="post">
                   <div class="field">
                       <span class="fa fa-user"></span>
                       <input type="text" id="s_id" name="s_id" required placeholder="ID를 입력해 주세요.">

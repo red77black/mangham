@@ -6,6 +6,7 @@
 <!-- 회원정보 처리 SQL -->
 <mapper namespace="com.sc.it.dao.SuSooUserMapper">
 
+<!-- 회원가입 -->
 <insert id="insertUser" parameterType="user">
 	insert into
 		susoo_user(
@@ -25,6 +26,7 @@
 		)
 </insert>
 
+<!-- 로그인 -->
 <select id="selectUser" parameterType="user" resultType="user">
 	select
 		s_name
