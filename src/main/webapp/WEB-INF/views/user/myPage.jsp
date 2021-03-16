@@ -1,18 +1,17 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
+    <title> [ 마이페이지 ] </title>
+    <link rel="stylesheet" href="/resources/css/myPageStyle.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
-  </head>
-  <body>
+</head>
+<body>
 	<!-- nav var -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-info">
 	  <div class="container-fluid">
