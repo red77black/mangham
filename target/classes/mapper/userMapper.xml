@@ -25,7 +25,7 @@
 		)
 </insert>
 
-<select id="selectUser" parameterType="user" resultType="user">
+<!-- <select id="selectUser" parameterType="user" resultType="user">
 	select
 		s_name
 		,s_id
@@ -39,6 +39,6 @@
 		s_id = #{s_id}
 	and
 		s_pw = #{s_pw}
-</select>
+</select> -->
 
 </mapper>
