@@ -12,6 +12,7 @@ public class SuSooUserService {
 	@Autowired
 	private SuSooUserDAO dao;
 	
+	// 회원가입
 	public String insertUser(UserVO user) {
 		int cnt = dao.insertUser(user);
 		String path = "";

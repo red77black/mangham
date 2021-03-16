@@ -15,10 +15,15 @@ public class UserController {
 	@Autowired
 	private SuSooUserService service;
 	
-	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	//회원가입 폼
+	@RequestMapping(value = "/joinForm", method = RequestMethod.GET)
+	public String joinForm() {
+		return "user/joinForm";
+	}
+	// 회원가입
+	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(UserVO user) {
-		String path = service.insertUser(user);
-		return path;
+		return service.insertUser(user);
 	}
 	
 }

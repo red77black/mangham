@@ -12,6 +12,7 @@ public class SuSooUserDAO {
 	@Autowired
 	private SqlSession session;
 	
+	// 회원가입
 	public int insertUser(UserVO user) {
 		int cnt = 0;
 		try {
