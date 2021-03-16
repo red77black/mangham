@@ -38,4 +38,10 @@ public class UserController {
 	public String login(UserVO user) {
 		return service.selectUser(user);
 	}
+	
+	//로그아웃
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String userLogout() {
+		return service.userLogout();
+	}
 }

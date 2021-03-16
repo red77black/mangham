@@ -25,7 +25,7 @@ public class SuSooUserService {
 		
 	}
 	
-	//로그인
+	// 로그인
 	public String selectUser(UserVO user) {
 		UserVO vo = dao.selectUser(user);
 		String path = "";
@@ -37,4 +37,11 @@ public class SuSooUserService {
 		}
 		return path;
 	}
+	
+	// 로그아웃
+	public String userLogout() {
+		session.removeAttribute("loginVO");
+		return "redirect:/";
+	}
+	
 }
