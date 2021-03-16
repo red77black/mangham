@@ -15,7 +15,7 @@ public class SuSooUserService {
 	// 회원가입
 	public String insertUser(UserVO user) {
 		int cnt = dao.insertUser(user);
-		String path = cnt > 0 ? "redirect:/" : "redirect:/home";
+		String path = cnt > 0 ? "redirect:/" : "redirect:/user/joinForm";
 		return path;
 		
 	}

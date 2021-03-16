@@ -20,6 +20,7 @@ public class UserController {
 	public String joinForm() {
 		return "user/joinForm";
 	}
+	
 	// 회원가입
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String join(UserVO user) {
