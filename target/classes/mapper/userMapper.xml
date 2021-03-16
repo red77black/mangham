@@ -4,7 +4,41 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 회원정보 처리 SQL -->
-<mapper namespace="com.sc.it.dao.UserMapper">
+<mapper namespace="com.sc.it.dao.SuSooUserMapper">
 
+<insert id="insertUser" parameterType="user">
+	insert into
+		susoo_user(
+			s_name
+			,s_id
+			,s_pw
+			,s_gender
+			,s_email
+			,s_phone
+		)values(
+			#{s_name}
+			,#{s_id}
+			,#{s_pw}
+			,#{s_gender}
+			,#{s_email}
+			,#{s_phone}
+		)
+</insert>
+
+<select id="selectUser" parameterType="user" resultType="user">
+	select
+		s_name
+		,s_id
+		,s_pw
+		,s_gender
+		,s_email
+		,s_phone
+	from
+		susoo_user
+	where
+		s_id = #{s_id}
+	and
+		s_pw = #{s_pw}
+</select>
 
 </mapper>
