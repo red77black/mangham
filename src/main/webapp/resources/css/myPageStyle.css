@@ -7,7 +7,7 @@
 }
 .bg-img {
     height: 100vh;
-    background-image: url('cloud.jpg');
+    background-image: url('/resources/img/cloud.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
