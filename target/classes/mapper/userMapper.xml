@@ -43,4 +43,27 @@
 		s_pw = #{s_pw}
 </select>
 
+<!-- ID 찾기 -->
+<select id="findId" parameterType="user" resultType="string">
+	select
+		s_id
+	from
+		susoo_user
+	where
+		s_name = #{s_name}
+	and
+		s_phone = #{s_phone}
+</select>
+
+<!-- PW 찾기 -->
+<select id="findPw" parameterType="user" resultType="string">
+	select
+		s_pw
+	from
+		susoo_user
+	where
+		s_id = #{s_id}
+	and
+		s_email = #{s_email}
+</select>
 </mapper>

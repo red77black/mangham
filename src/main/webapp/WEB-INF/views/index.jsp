@@ -52,7 +52,7 @@
                   <input type="button" value="ID 찾기" onclick="return findIdFormCheck();"/>
               </div>
               <div class="findPw">
-                  <input type="button" value="PW 찾기" onclick="return FindPwFormCheck*();" />
+                  <input type="button" value="PW 찾기" onclick="return findPwFormCheck();" />
               </div>
           </div>
       </div>

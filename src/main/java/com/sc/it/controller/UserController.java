@@ -44,4 +44,16 @@ public class UserController {
 	public String userLogout() {
 		return service.userLogout();
 	}
+	
+	// ID 찾기
+	@RequestMapping(value = "/findIdForm", method = RequestMethod.GET)
+	public String findIdForm() {
+		return "user/findIdForm";
+	}
+	
+	// 비밀번호 찾기
+	@RequestMapping(value = "/findPwForm", method = RequestMethod.GET)
+	public String findPwForm() {
+		return "user/findPwForm";
+	}
 }
