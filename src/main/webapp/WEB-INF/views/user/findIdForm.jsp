@@ -8,12 +8,13 @@
     <title>[ 아이디 찾기 ]</title>
     <link rel="stylesheet" href="/resources/css/idStyle.css">
    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-   <script type="text/javascript">
-	function formCheck(){
+   <!-- <script type="text/javascript">
+   
+		var id = '${s_id}';
+		alert('당신의 아이디는 : '+id+' 입니다.');
+		document.location.href = "/";
 		
-		alert('당신의 아이디는 :', <c:out value ="${s_id}"/>);
-	}
-   </script>
+   </script> -->
   </head>
   <body>
       <h1 class="ss-title"></h1>
@@ -40,11 +41,16 @@
 
                   <!-- 뒤로가기 / ID찾기 -->
                   <div class="formbutton">
-                      <input type="button" value="뒤로가기" onclick="history.back(-1)"/> <input type="submit" value="ID 찾기" onclick="return formCheck();"/>
+                      <input type="button" value="뒤로가기" onclick="history.back(-1)"/> <input type="submit" value="ID 찾기"/>
                   </div>
               </form>
-          </div>
-      </div>
+			<c:if test="${!empty s_id }">
+				당신의 아이디는 ${s_id } 입니다.
+			</c:if>
 
+		</div>
+      </div>
+	
   </body>
+  
 </html>
