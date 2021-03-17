@@ -1,7 +1,10 @@
 package com.sc.it.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -45,9 +48,18 @@ public class UserController {
 		return service.userLogout();
 	}
 	
-	// ID 찾기
+	// ID 찾기폼
 	@RequestMapping(value = "/findIdForm", method = RequestMethod.GET)
 	public String findIdForm() {
+		return "user/findIdForm";
+	}
+	
+	// ID 찾기
+	@RequestMapping(value = "/findId", method = RequestMethod.GET)
+	public String findId(UserVO user, Model model) {
+		String id = service.findId(user);
+		model.addAttribute("s_id", id);
+		System.out.println(id);
 		return "user/findIdForm";
 	}
 	

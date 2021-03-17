@@ -56,7 +56,7 @@
 </select>
 
 <!-- PW 찾기 -->
-<select id="findPw" parameterType="user" resultType="string">
+<select id="findPw" parameterType="user" resultType="user">
 	select
 		s_pw
 	from

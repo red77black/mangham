@@ -1,5 +1,7 @@
 package com.sc.it.dao;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,7 +26,7 @@ public class SuSooUserDAO {
 		return cnt;
 	}
 	
-	//로그인
+	// 로그인
 	public UserVO selectUser(UserVO user) {
 		UserVO vo = null;
 		
@@ -37,4 +39,29 @@ public class SuSooUserDAO {
 		return vo;
 	}
 	
+	// ID 찾기
+	public String findId(UserVO user) {
+		String list = null;
+		
+		try {
+			SuSooUserMapper mapper = session.getMapper(SuSooUserMapper.class);
+			list = mapper.findId(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	// PW 찾기
+	public ArrayList<UserVO> findPw(UserVO user) {
+		ArrayList<UserVO> list = null;
+		
+		try {
+			SuSooUserMapper mapper = session.getMapper(SuSooUserMapper.class);
+			list = mapper.findPw(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 }

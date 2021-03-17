@@ -64,10 +64,10 @@
 						href="/word/wordNote">단어장</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link fw-bolder" href="/user/logout">로그아웃</a>
-					</li>
 					<li class="nav-item"><a class="nav-link fw-bolder"
-						href="/word/MyPage">마이페이지</a></li>
+						href="/user/logout">로그아웃</a></li>
+					<li class="nav-item"><a class="nav-link fw-bolder"
+						href="/user/myPage">마이페이지</a></li>
 				</ul>
 			</div>
 		</div>

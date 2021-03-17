@@ -1,5 +1,7 @@
 package com.sc.it.service;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +45,14 @@ public class SuSooUserService {
 		session.removeAttribute("loginVO");
 		return "redirect:/";
 	}
+	
+	// ID 찾기
+	public String findId(UserVO user) {
+		String list = dao.findId(user);
+		
+		return list;
+	}
+	
+	// PW 찾기
 	
 }

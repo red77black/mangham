@@ -23,11 +23,6 @@ public class WordController {
 		return "wordNote";
 	}
 	
-	@RequestMapping(value = "/MyPage", method = RequestMethod.GET)
-	public String MyPage() {
-		return "MyPage";
-	}
-	
 	@RequestMapping(value = "/words", method = RequestMethod.GET)
 	public String words() {
 		return "words";

@@ -18,6 +18,8 @@
    function  findPwFormCheck(){
 		location.href = "/user/findPwForm";
 	}
+
+
    </script>
   </head>
   <body>
