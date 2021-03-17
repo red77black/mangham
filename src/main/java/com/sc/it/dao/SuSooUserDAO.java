@@ -24,5 +24,17 @@ public class SuSooUserDAO {
 		return cnt;
 	}
 	
+	//로그인
+	public UserVO selectUser(UserVO user) {
+		UserVO vo = null;
+		
+		try {
+			SuSooUserMapper mapper = session.getMapper(SuSooUserMapper.class);
+			vo = mapper.selectUser(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 	
 }

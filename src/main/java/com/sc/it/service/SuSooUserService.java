@@ -17,7 +17,8 @@ public class SuSooUserService {
 		int cnt = dao.insertUser(user);
 		String path = cnt > 0 ? "redirect:/" : "redirect:/user/joinForm";
 		return path;
-		
 	}
+	
+	
 	
 }

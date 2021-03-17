@@ -27,4 +27,15 @@ public class UserController {
 		return service.insertUser(user);
 	}
 	
+	//로그인 폼
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String loginForm() {
+		return "/";
+	}
+	
+	//로그인
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(UserVO user) {
+		return service.selectUser(user);
+	}
 }
