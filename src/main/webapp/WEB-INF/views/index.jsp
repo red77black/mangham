@@ -12,10 +12,10 @@
    function joinFormCheck(){
 		location.href = "/user/joinForm";
 	}
-   function  findIdFormCheck(){
+   function findIdFormCheck(){
 		location.href = "/user/findIdForm";
 	}
-   function  findPwFormCheck(){
+   function findPwFormCheck(){
 		location.href = "/user/findPwForm";
 	}
 

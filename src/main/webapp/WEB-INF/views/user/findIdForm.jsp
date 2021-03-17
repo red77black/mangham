@@ -8,6 +8,7 @@
     <title>[ 아이디 찾기 ]</title>
     <link rel="stylesheet" href="/resources/css/idStyle.css">
    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<<<<<<< HEAD
    <!-- <script type="text/javascript">
    
 		var id = '${s_id}';
@@ -15,6 +16,14 @@
 		document.location.href = "/";
 		
    </script> -->
+=======
+   <script type="text/javascript">
+   window.onload  = function() {
+		var id = '${s_id}';
+		alert('당신의 아이디는 :' + id + ' 입니다');
+   }
+   </script>
+>>>>>>> 224e7a749a911beb7d218a2bb72469760dee9046
   </head>
   <body>
       <h1 class="ss-title"></h1>
