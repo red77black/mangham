@@ -3,6 +3,14 @@
 <!doctype html>
 <html lang="en">
   <head>
+  <script type="text/javascript">
+  
+			function logout() {
+				if (confirm("로그아웃 하시겠습니까?")) {
+					location.href = "/user/logout";
+				}
+			}
+		</script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +40,7 @@
 						href="/word/wordNote">단어장</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link fw-bolder" href="#">로그아웃</a>
+					<li class="nav-item"><a class="nav-link fw-bolder" href="#" onclick="return logout();">로그아웃</a>
 					</li>
 					<li class="nav-item"><a class="nav-link fw-bolder"
 						href="/word/MyPage">마이페이지</a></li>

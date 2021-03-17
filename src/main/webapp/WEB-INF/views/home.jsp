@@ -7,33 +7,47 @@
   <!-- 자바스크립트 번역 -->
   <script src="resources/js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
-		$(function(){
-			$("#translate").on("click",function(){
-				var source = $("#source").val();
-				var target = $("#target").val();
-				var text = $("#text").val();
+	
+		function logout() {
+			if(confirm("로그아웃 하시겠습니까?")){
+				location.href = "/user/logout";
+				}
+		}
+		
+		$(function() {
+			$("#translate")
+					.on(
+							"click",
+							function() {
+								var source = $("#source").val();
+								var target = $("#target").val();
+								var text = $("#text").val();
 
-				$.ajax({
-					url : 'translate',
-					type : 'post',
-					data : {
-						source : source,
-						target : target,
-						text : text
-					},
-					success : function(data){
-						//JSON 형태의 문자열을 JSON 객체로 변환
-						var jsonObject = JSON.parse(data);
-						console.log(jsonObject);
-						
-						$("#translatedText1").html(jsonObject.message.result.translatedText);
-					},
-					error : function(e){
-						console.log(e);	
-					}
-				});
-				
-			});
+								$
+										.ajax({
+											url : 'translate',
+											type : 'post',
+											data : {
+												source : source,
+												target : target,
+												text : text
+											},
+											success : function(data) {
+												//JSON 형태의 문자열을 JSON 객체로 변환
+												var jsonObject = JSON
+														.parse(data);
+												console.log(jsonObject);
+
+												$("#translatedText1")
+														.html(
+																jsonObject.message.result.translatedText);
+											},
+											error : function(e) {
+												console.log(e);
+											}
+										});
+
+							});
 		});
 	</script>
     <!-- Required meta tags -->
@@ -64,6 +78,11 @@
 						href="/word/wordNote">단어장</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
+<<<<<<< HEAD
+=======
+					<li class="nav-item"><a class="nav-link fw-bolder"
+						href="#" onclick="return logout();">로그아웃</a></li>
+>>>>>>> 101345430f33013b208533cd1ec63737b88a47a0
 					<li class="nav-item"><a class="nav-link fw-bolder"
 						href="/user/logout">로그아웃</a></li>
 					<li class="nav-item"><a class="nav-link fw-bolder"
