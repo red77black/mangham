@@ -22,9 +22,9 @@ public class SuSooUserService {
 		int cnt = dao.insertUser(user);
 		String path = cnt > 0 ? "redirect:/" : "redirect:/user/joinForm";
 		return path;
-		
 	}
 	
+
 	// 로그인
 	public String selectUser(UserVO user) {
 		UserVO vo = dao.selectUser(user);
