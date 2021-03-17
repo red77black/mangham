@@ -78,11 +78,8 @@
 						href="/word/wordNote">단어장</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
-<<<<<<< HEAD
-=======
 					<li class="nav-item"><a class="nav-link fw-bolder"
 						href="#" onclick="return logout();">로그아웃</a></li>
->>>>>>> 101345430f33013b208533cd1ec63737b88a47a0
 					<li class="nav-item"><a class="nav-link fw-bolder"
 						href="/user/logout">로그아웃</a></li>
 					<li class="nav-item"><a class="nav-link fw-bolder"

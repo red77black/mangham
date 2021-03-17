@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="/resources/css/idStyle.css">
    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
    <script type="text/javascript">
-	function formCheck(){
-		
-		alert('당신의 아이디는 :', <c:out value ="${s_id}"/>);
-	}
+   window.onload  = function() {
+		var id = '${s_id}';
+		alert('당신의 아이디는 :' + id + ' 입니다');
+   }
    </script>
   </head>
   <body>
@@ -40,7 +40,7 @@
 
                   <!-- 뒤로가기 / ID찾기 -->
                   <div class="formbutton">
-                      <input type="button" value="뒤로가기" onclick="history.back(-1)"/> <input type="submit" value="ID 찾기" onclick="return formCheck();"/>
+                      <input type="button" value="뒤로가기" onclick="history.back(-1)"/> <input type="submit" value="ID 찾기"/>
                   </div>
               </form>
           </div>
