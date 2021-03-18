@@ -1,7 +1,5 @@
 package com.sc.it.dao;
 
-import java.util.ArrayList;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -53,8 +51,8 @@ public class SuSooUserDAO {
 	}
 	
 	// PW 찾기
-	public ArrayList<UserVO> findPw(UserVO user) {
-		ArrayList<UserVO> list = null;
+	public String findPw(UserVO user) {
+		String list = null;
 		
 		try {
 			SuSooUserMapper mapper = session.getMapper(SuSooUserMapper.class);

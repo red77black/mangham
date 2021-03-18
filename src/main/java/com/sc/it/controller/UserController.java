@@ -46,7 +46,7 @@ public class UserController {
 		return service.userLogout();
 	}
 	
-	// ID 찾기폼
+	// ID 찾기 폼
 	@RequestMapping(value = "/findIdForm", method = RequestMethod.GET)
 	public String findIdForm() {
 		return "user/findIdForm";
@@ -61,9 +61,18 @@ public class UserController {
 		return "user/findIdForm";
 	}
 	
-	// 비밀번호 찾기
+	// 비밀번호 찾기 폼
 	@RequestMapping(value = "/findPwForm", method = RequestMethod.GET)
 	public String findPwForm() {
+		return "user/findPwForm";
+	}
+	
+	// 비밀번호 찾기 
+	@RequestMapping(value = "/findPw", method = RequestMethod.GET)
+	public String findPw(UserVO user, Model model) {
+		String pw = service.findPw(user);
+		model.addAttribute("s_pw", pw);
+		System.out.println(pw);
 		return "user/findPwForm";
 	}
 }

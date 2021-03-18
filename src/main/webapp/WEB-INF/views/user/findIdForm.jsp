@@ -20,13 +20,7 @@
 			}
 		
    </script>
-   <!-- <script type="text/javascript">
-   window.onload  = function() {
-		var id = '${s_id}';
-		alert('당신의 아이디는 :' + id + ' 입니다');
-		document.location.href = "/";
-   } 
-   </script>-->
+
   </head>
   <body>
       <h1 class="ss-title"></h1>
@@ -55,11 +49,8 @@
                   <div class="formbutton">
                       <input type="button" value="뒤로가기" onclick="history.back(-1)"/> <input type="submit" value="ID 찾기"/>
                   </div>
+                  
               </form>
-			<%-- <c:if test="${!empty s_id }">
-				당신의 아이디는 ${s_id } 입니다.
-			</c:if>
- --%>
 		</div>
       </div>
 	
