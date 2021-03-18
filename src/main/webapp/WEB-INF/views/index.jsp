@@ -18,13 +18,10 @@
    function findPwFormCheck(){
 		location.href = "/user/findPwForm";
 	}
-
-
    </script>
   </head>
   <body>
       <div class="bg-img">
-          
           <div class="content">
               <header>SuSoo</header>
               <form action="/user/login" method="post">
