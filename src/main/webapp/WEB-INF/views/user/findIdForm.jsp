@@ -9,18 +9,30 @@
     <link rel="stylesheet" href="/resources/css/idStyle.css">
    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
    <script type="text/javascript">
-   
-		var id = '${s_id}';
-
-		if(id != null){
-			alert('당신의 아이디는 : '+id+' 입니다.');
-			document.location.href = "/";
-		}else{
-			return false;
-			}
+	window.onload = function(){
+		var id = document.getElementById("id").value;
 		
+<<<<<<< HEAD
    </script>
 
+=======
+		if (id == null || id.length == 0) {
+			return false;
+		} else {
+			alert('당신의 아이디는 : ' + id + ' 입니다.');
+			document.location.href = "/";
+		}
+		return true;
+		}
+	</script>
+   <!-- <script type="text/javascript">
+   window.onload  = function() {
+		var id = '${s_id}';
+		alert('당신의 아이디는 :' + id + ' 입니다');
+		document.location.href = "/";
+   } 
+   </script>-->
+>>>>>>> 5578aeeace732c0a2e84d590bd1a0bc0131df508
   </head>
   <body>
       <h1 class="ss-title"></h1>
@@ -49,8 +61,16 @@
                   <div class="formbutton">
                       <input type="button" value="뒤로가기" onclick="history.back(-1)"/> <input type="submit" value="ID 찾기"/>
                   </div>
+<<<<<<< HEAD
                   
               </form>
+=======
+                  <input type="hidden" id="id" value="${s_id }">
+              </form>
+			<%-- <c:if test="${!empty s_id }">
+				당신의 아이디는 ${s_id } 입니다.
+			</c:if>--%>
+>>>>>>> 5578aeeace732c0a2e84d590bd1a0bc0131df508
 		</div>
       </div>
 	

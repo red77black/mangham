@@ -18,6 +18,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body>
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-dark bg-info">
         <div class="container-fluid">
             <a class="navbar-brand fs-3 fw-bold" href="/">SuSoo</a>
@@ -108,6 +109,34 @@
                         </tr>
                     </table>
                     <br />
+=======
+	<!-- nav var -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+		<div class="container-fluid">
+			<a class="navbar-brand fs-3 fw-bold" href="/home">SuSoo</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link fw-bolder"
+						href="/home">번역창</a></li>
+					<li class="nav-item"><a class="nav-link fw-bolder"
+						href="/word/wordNote">단어장</a></li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link fw-bolder" href="#"
+						onclick="return logout();">로그아웃</a></li>
+					<li class="nav-item"><a class="nav-link fw-bolder"
+						href="/user/myPage">마이페이지</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+>>>>>>> 5578aeeace732c0a2e84d590bd1a0bc0131df508
 
                     <table class="word">
                         <tr>

@@ -67,6 +67,7 @@ public class UserController {
 		return "user/findPwForm";
 	}
 	
+<<<<<<< HEAD
 	// 비밀번호 찾기 
 	@RequestMapping(value = "/findPw", method = RequestMethod.GET)
 	public String findPw(UserVO user, Model model) {
@@ -75,4 +76,12 @@ public class UserController {
 		System.out.println(pw);
 		return "user/findPwForm";
 	}
+=======
+	//마이페이지 폼 이동
+	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
+	public String myPage() {
+		return "user/myPage";
+	}
+	
+>>>>>>> 5578aeeace732c0a2e84d590bd1a0bc0131df508
 }
