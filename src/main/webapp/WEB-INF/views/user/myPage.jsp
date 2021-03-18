@@ -41,7 +41,7 @@
 					<li class="nav-item"><a class="nav-link fw-bolder" href="#"
 						onclick="return logout();">로그아웃</a></li>
 					<li class="nav-item"><a class="nav-link fw-bolder"
-						href="/word/MyPage">마이페이지</a></li>
+						href="/user/myPage">마이페이지</a></li>
 				</ul>
 			</div>
 		</div>

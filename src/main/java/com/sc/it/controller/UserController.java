@@ -66,4 +66,11 @@ public class UserController {
 	public String findPwForm() {
 		return "user/findPwForm";
 	}
+	
+	//마이페이지 폼 이동
+	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
+	public String myPage() {
+		return "user/myPage";
+	}
+	
 }

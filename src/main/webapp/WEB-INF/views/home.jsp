@@ -81,8 +81,6 @@
 					<li class="nav-item"><a class="nav-link fw-bolder"
 						href="#" onclick="return logout();">로그아웃</a></li>
 					<li class="nav-item"><a class="nav-link fw-bolder"
-						href="/user/logout">로그아웃</a></li>
-					<li class="nav-item"><a class="nav-link fw-bolder"
 						href="/user/myPage">마이페이지</a></li>
 				</ul>
 			</div>
@@ -140,9 +138,9 @@
 						</div>
 						<button type="button"
 							class="btn btn-info btn-lg mt-2 text-light fw-bolder">단어저장</button>
-							<button type="button"
+						<button type="button"
 							class="btn btn-info btn-lg mt-2 text-light fw-bolder">후리가나</button>
-							<button type="button"
+						<button type="button"
 							class="btn btn-info btn-lg mt-2 text-light fw-bolder">발음듣기</button>
 					</div>
 				</div>
