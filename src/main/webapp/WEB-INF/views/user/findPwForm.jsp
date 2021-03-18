@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -8,22 +9,21 @@
     <link rel="stylesheet" href="/resources/css/pwStyle.css">
    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
    <script type="text/javascript">
-   window.onload() = function{
+   window.onload = function(){
 	   var pw = document.getElementById("s_pw").value;
-		if(pw == null || pw.length == 0){
-			alert("입력정보를 다시 한 번 확인해 주세요.");
+	   
+	   if(pw == null || pw.length == 0){
 			return false;
-		}else if(pw != null){
-			alert("당신의 PW는 " + pw + " 입니다.");
-			}
-			return true;
+		}else {
+			alert('당신의 PW는 ' + pw + ' 입니다.');
+			document.location.href = "/";
 		}
+		return true;
+	}
    </script>
   </head>
   <body>
-      <h1 class="ss-title"></h1>
       <div class="bg-img">
-
           <div class="content">
               <header>SuSoo</header>
               <form action="/user/findPw" method="get">
@@ -47,9 +47,8 @@
                   <div class="formbutton">
                       <input type="button" value="뒤로가기" onclick="history.back(-1)" /> <input type="submit" value="PW 찾기" />
                   </div>
-                  <input type="hidden" id = "s_pw" value="${s_pw }">
-                  
               </form>
+                  <input type="hidden" id = "s_pw" value="${s_pw }">
           </div>
       </div>
 
