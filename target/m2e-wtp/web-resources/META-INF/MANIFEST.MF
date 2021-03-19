@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: ko
+=======
+Built-By: sooyeon
+>>>>>>> cfbb9c898a9d98576d955a7c98a35bdbd645882d
 Build-Jdk: 15
 Created-By: Maven Integration for Eclipse
 

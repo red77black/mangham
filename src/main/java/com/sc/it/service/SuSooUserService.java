@@ -51,5 +51,8 @@ public class SuSooUserService {
 	}
 	
 	// PW 찾기
-	
+	public String findPw(UserVO user) {
+		String list = dao.findPw(user);
+		return list;
+	}
 }
