@@ -29,7 +29,7 @@
     text-align: center;
     padding: 230px 32px;
     width: 880px;
-    height: fit-content(height:800px);
+    height: fit-content(height 800px);
     transform: translate(-50%,-50%);
     background: rgba(255,255,255,0.04);
     box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
@@ -222,7 +222,7 @@
 }
 
 .all-button {
-    background: url( "all.png" ) no-repeat;
+    background: url( '/resources/css/all.png' ) no-repeat;
     border: none;
     width: 64px;
     height: 64px;
@@ -231,7 +231,7 @@
 }
 
 .mi-button {
-    background: url( "mi.png" ) no-repeat;
+    background: url( '/resources/css/mi.png' ) no-repeat;
     border: none;
     width: 64px;
     height: 64px;
@@ -240,7 +240,7 @@
 }
 
 .am-button {
-    background: url( "am.png" ) no-repeat;
+    background: url( '/resources/css/am.png' ) no-repeat;
     border: none;
     width: 64px;
     height: 64px;
@@ -248,7 +248,7 @@
     margin-top:7px;
 }
 .all-button:hover {
-    background: url( "all.png" ) no-repeat;
+    background: url( '/resources/css/all.png' ) no-repeat;
     border: none;
     width: 65px;
     height: 65px;
@@ -256,7 +256,7 @@
 }
 
 .mi-button:hover {
-    background: url( "mi.png" ) no-repeat;
+    background: url( '/resources/css/mi.png' ) no-repeat;
     border: none;
     width: 65px;
     height: 65px;
@@ -264,14 +264,14 @@
 }
 
 .am-button:hover {
-    background: url( "am.png" ) no-repeat;
+    background: url( '/resources/css/am.png' ) no-repeat;
     border: none;
     width: 65px;
     height: 65px;
     cursor: pointer;
 }
 .all-button:active {
-    background: url( "all.png" ) no-repeat;
+    background: url( '/resources/css/all.png' ) no-repeat;
     border: none;
     width: 65px;
     height: 65px;
@@ -279,7 +279,7 @@
 }
 
 .mi-button:active {
-    background: url( "mi.png" ) no-repeat;
+    background: url( '/resources/css/mi.png' ) no-repeat;
     border: none;
     width: 65px;
     height: 65px;
@@ -287,7 +287,7 @@
 }
 
 .am-button:active {
-    background: url( "am.png" ) no-repeat;
+    background: url( '/resources/css/am.png' ) no-repeat;
     border: none;
     width: 65px;
     height: 65px;
