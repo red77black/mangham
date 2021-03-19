@@ -10,4 +10,5 @@ public class UserVO {
 	private String s_gender;
 	private String s_email;
 	private String s_phone;
+	private String s_npw;
 }

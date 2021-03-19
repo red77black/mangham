@@ -11,19 +11,26 @@
         function formCheck() {
 
         // 새로운 비밀번호 입력
-        var pw = document.getElementById("s_npw").value;
+        var pw = document.getElementById("s_pw").value;
+        var npw = document.getElementById("s_npw").value;
         var pwCheck = document.getElementById("pw_check").value;
 
         if (pw == null || pw.length == 0) {
             alert("비밀번호를 입력해 주세요");
             return false;
-        } else if (pw.length < 5 || pw.length > 12) {
-            alert("비밀번호는 5글자 ~ 12글자 사이로 입력해 주세요.");
+        }
+        
+        if (npw == null || npw.length == 0) {
+            alert("새 비밀번호를 입력해 주세요");
             return false;
-        } else if (pw != pwCheck) {
+        } else if (npw.length < 5 || npw.length > 12) {
+            alert("새 비밀번호는 5글자 ~ 12글자 사이로 입력해 주세요.");
+            return false;
+        } else if (npw != pwCheck) {
             alert("새 비밀번호를 다시 확인해 주세요.");
             return false;
             }
+        
             return true;
         }
     </script>
@@ -34,13 +41,14 @@
 
         <div class="content">
             <header>SuSoo</header>
-            <form action="#" method="post" onsubmit="return formCheck();">
+            <form action="/user/changePw" method="post" onsubmit="return formCheck();">
+            
                 <!-- 아이디 -->
                 <div class="join-name">
                     <span class="red"> -</span> ID
                 </div>
                 <div class="field-rock">
-                    <input type="text" id="s_id" name="s_id" value=" dltndus" readonly="readonly">
+                    <input type="text" id="s_id" name="s_id" value="${sessionScope.loginVO.s_id}" readonly="readonly">
                 </div>
 
                 <!-- 현재 비밀번호 -->
@@ -74,7 +82,5 @@
             </form>
         </div>
     </div>
-
-
 </body>
 </html>

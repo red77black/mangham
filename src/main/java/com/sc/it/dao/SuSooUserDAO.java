@@ -62,4 +62,31 @@ public class SuSooUserDAO {
 		}
 		return list;
 	}
+	
+	// 회원정보 변경
+	public int changeUser(UserVO user) {
+		int cnt = 0;
+		
+		try {
+			SuSooUserMapper mapper = session.getMapper(SuSooUserMapper.class);
+			cnt = mapper.changeUser(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
+	
+	//PW변경
+	public int changePw(UserVO user) {
+		int cnt = 0;
+		
+		try {
+			SuSooUserMapper mapper = session.getMapper(SuSooUserMapper.class);
+			cnt = mapper.changePw(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cnt;
+		
+	}
 }

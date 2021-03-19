@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <!doctype html>
 <html lang="en">
   <head>
@@ -42,7 +43,7 @@
 					<li class="nav-item"><a class="nav-link fw-bolder" href="#"
 						onclick="return logout();">로그아웃</a></li>
 					<li class="nav-item"><a class="nav-link fw-bolder"
-						href="/word/MyPage">마이페이지</a></li>
+						href="/user/myPage">마이페이지</a></li>
 				</ul>
 			</div>
 		</div>
@@ -55,7 +56,7 @@
 				<div class="col">
 					<div class="card h-100">
 						<div class="card-body">
-							<h5 class="card-title fw-bold">전체</h5>
+							<h5 class="card-title fw-bold"><a href="/word/words" style="color: black; text-decoration: none;">전체</a></h5>
 						</div>
 						<div class="card-footer">
 							<small class="text-muted fw-bolder">234</small>
@@ -65,7 +66,7 @@
 				<div class="col">
 					<div class="card h-100">
 						<div class="card-body">
-							<h5 class="card-title fw-bold">미암기</h5>
+							<h5 class="card-title fw-bold"><a href="/word/words" style="color: black; text-decoration: none;">미암기</a></h5>
 						</div>
 						<div class="card-footer">
 							<small class="text-muted fw-bolder">233</small>
@@ -75,7 +76,7 @@
 				<div class="col">
 					<div class="card h-100">
 						<div class="card-body">
-							<h5 class="card-title fw-bolder">암기</h5>
+							<h5 class="card-title fw-bolder"><a href="/word/words" style="color: black; text-decoration: none;">암기</a></h5>
 						</div>
 						<div class="card-footer">
 							<small class="text-muted fw-bolder">1</small>
@@ -102,21 +103,6 @@
 							<th scope="row"><a href="/word/words" style="color: black; text-decoration: none;">명사</a></th>
 							<td></td>
 							<td></td>
-							<td class="text-end">
-								<img alt="plus" src="/resources/img/trashcan.png">
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">동사</th>
-							<td></td>
-							<td></td>
-							<td class="text-end">
-								<img alt="plus" src="/resources/img/trashcan.png">
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">형용사</th>
-							<td colspan="2"></td>
 							<td class="text-end">
 								<img alt="plus" src="/resources/img/trashcan.png">
 							</td>
