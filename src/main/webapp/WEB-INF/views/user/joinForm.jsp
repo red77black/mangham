@@ -106,11 +106,7 @@
                 <div class="field">
                     <input type="text" id="s_phone" name="s_phone" pattern="(010)-\d{3,4}-\d{4}" title="핸드폰 번호 ex) 010-0000-0000" required placeholder="  핸드폰 번호를 입력해 주세요.">
                 </div>
-                <!--
-    <div class="phone" >
-        <input type="text" id="susoo_phone" name="susoo_phone" minlength="3" title="형식 010-0000-0000" required placeholder=" "> <img src="phone.png" id="phoneicon" name="phoneicon" /> <input type="text" id="phone" name="phone" minlength="4" required placeholder=" "> <img src="phone.png" id="phoneicon" /> <input type="text" id="phone" name="phone" minlength="4" required placeholder=" ">
-    </div>
-        -->
+                
                 <!-- 성별 -->
                 <div class="join-name">
                     <span class="red"> -</span> <span> Gender</span>
