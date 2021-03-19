@@ -34,16 +34,16 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link fw-bolder" href="/home">번역창</a>
-					</li>
+					<li class="nav-item"><a class="nav-link fw-bolder"
+						href="/home">번역창</a></li>
 					<li class="nav-item"><a class="nav-link fw-bolder"
 						href="/word/wordNote">단어장</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link fw-bolder" href="#" onclick="return logout();">로그아웃</a>
-					</li>
+					<li class="nav-item"><a class="nav-link fw-bolder" href="#"
+						onclick="return logout();">로그아웃</a></li>
 					<li class="nav-item"><a class="nav-link fw-bolder"
-						href="/word/MyPage">마이페이지</a></li>
+						href="/user/myPage">마이페이지</a></li>
 				</ul>
 			</div>
 		</div>

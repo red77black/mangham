@@ -55,4 +55,23 @@ public class SuSooUserService {
 		String list = dao.findPw(user);
 		return list;
 	}
+	
+	// 회원정보 변경
+	public String changeUser(UserVO user) {
+		int cnt = dao.changeUser(user);
+		String path = cnt > 0 ? "redirect:/" : "redirect:/user/change-userForm";
+		
+		return path;
+	}
+	
+	//PW변경
+	public String changePw(UserVO user) {
+		int cnt = dao.changePw(user);
+		String path = cnt > 0 ? "redirect:/" : "redirect:/user/change-passwordForm";
+		
+		return path;
+		
+	}
+	
+	
 }

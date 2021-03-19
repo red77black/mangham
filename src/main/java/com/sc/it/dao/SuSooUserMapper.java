@@ -15,4 +15,11 @@ public interface SuSooUserMapper {
 	
 	// PW 찾기
 	public String findPw(UserVO user);
+	
+	// 회원정보변경
+	public int changeUser(UserVO user);
+	
+	// PW변경
+	public int changePw(UserVO user);
+	
 }
