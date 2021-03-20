@@ -1,16 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
-  <head>
-  <script type="text/javascript">
+<head>
+<script type="text/javascript" src="/resources/js/jquery.js"></script>
+<script type="text/javascript">
   
 			function logout() {
 				if (confirm("로그아웃 하시겠습니까?")) {
 					location.href = "/user/logout";
 				}
 			}
-		</script>
+
+			function hideWord() {
+				document.getElementById("word").style.backgroundColor = "#000000";
+				}
+
+			function hideMeaning() {
+				document.getElementById("meaning").style.backgroundColor = "#000000";
+				}
+
+			function Original() {
+				document.getElementById("word").style.backgroundColor = "#f0f1f2";
+				document.getElementById("meaning").style.backgroundColor = "#f8f9fa";
+				}
+</script>
+	
+	
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,30 +69,35 @@
 	<!-- 숨김 기능 -->
 	<div class="container mt-2">
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-			<button class="btn btn-light me-md-2" type="button">단어 숨김</button>
-			<button class="btn btn-light" type="button">뜻 숨김</button>
+			<button class="btn btn-light me-md-2" type="button" onclick="return hideWord();">단어 숨김</button>
+			<button class="btn btn-light" type="button" onclick="return hideMeaning();">뜻 숨김</button>
+			<button class="btn btn-light" type="button" onclick="return Original();">원래대로</button>
 		</div>
 	</div>
 	
 	<!-- content -->
-	<div class="container">
-		<div class="row mt-2">
-			<div class="col" style="background-color: #f8f9fa">
-				<div class="card text-dark bg-light mb-3 mt-3">
-					<div class="card-header">단어</div>
-					<div class="card-body">
-						<h5 class="card-title">뜻</h5>
+	<c:forEach items="${words }" var="words">
+		<div class="container">
+			<div class="row mt-2">
+				<div class="col" style="background-color: #f8f9fa">
+					<div class="card text-dark bg-light mb-3 mt-3">
+						<div id="word" class="card-header">${words.word }</div>
+						<div class="card-body">
+						<h5 id="meaning" class="card-title">${words.meaning }</h5></div>
 					</div>
-				</div>
-				<div class="card text-dark bg-light mb-3">
-					<div class="card-body">저장일 2021-03-13
-						<img class="rounded float-end" alt="trash" src="/resources/img/trashcan.png">
-						<img class="rounded float-end me-3" alt="check" src="/resources/img/check.png">
+					<div class="card text-dark bg-light mb-3">
+						<div class="card-body">${words.indate }
+							<a href="/word/deleteWord?word_num=${words.word_num }">
+								<img class="rounded float-end" alt="trash" src="/resources/img/trashcan.png">
+							</a>
+							<a><img class="rounded float-end me-3" alt="check" src="/resources/img/check.png"></a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</c:forEach>
+	
 	
 	<!-- Pagination -->
 	<nav aria-label="Page navigation example">

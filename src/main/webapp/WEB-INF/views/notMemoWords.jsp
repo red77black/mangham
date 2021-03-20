@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,7 +22,8 @@
     <title>SuSoo</title>
   </head>
   <body>
-	<!-- nav var -->
+  
+  <!-- nav var -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-info">
 		<div class="container-fluid">
 			<a class="navbar-brand fs-3 fw-bold" href="/home">SuSoo</a>
@@ -49,83 +50,51 @@
 		</div>
 	</nav>
 
-	<!-- content -->
-	<div class="container">
-		<div class="row mt-2" style="background-color: #f8f9fa">
-			<div class="row row-cols-1 row-cols-md-3 g-4 text-center mb-5 mx-auto" style="width: 400px">
-				<div class="col">
-					<div class="card h-100">
-						<div class="card-body">
-							<h5 class="card-title fw-bold">
-								<a href="/word/words" style="color: black; text-decoration: none;">
-									전체
-								</a>
-							</h5>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted fw-bolder">${cnt }</small>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card h-100">
-						<div class="card-body">
-							<h5 class="card-title fw-bold">
-								<a href="/word/notMemoWords" style="color: black; text-decoration: none;">
-									미암기
-								</a>
-							</h5>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted fw-bolder">${notMemoCnt }</small>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="card h-100">
-						<div class="card-body">
-							<h5 class="card-title fw-bolder">
-								<a href="/word/memoWords" style="color: black; text-decoration: none;">
-									암기
-								</a>
-							</h5>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted fw-bolder">${memoCnt }</small>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row mt-2">
-			<div class="col" style="background-color: #f8f9fa">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th scope="col">단어장 목록</th>
-							<th scope="col"></th>
-							<th scope="col"></th>
-							<th scope="col" class="text-end">
-								<img alt="plus" src="/resources/img/plus.png">
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">
-								<a href="/word/words" style="color: black; text-decoration: none;">명사</a>
-							</th>
-							<td></td>
-							<td></td>
-							<td class="text-end">
-								<img alt="plus" src="/resources/img/trashcan.png">
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+	<!-- 숨김 기능 -->
+	<div class="container mt-2">
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+			<button class="btn btn-light me-md-2" type="button">단어 숨김</button>
+			<button class="btn btn-light" type="button">뜻 숨김</button>
 		</div>
 	</div>
+	
+	<!-- content -->
+	<c:forEach items="${words }" var="words">
+		<c:if test="${words.checking == 2 }">
+			<div class="container">
+				<div class="row mt-2">
+					<div class="col" style="background-color: #f8f9fa">
+						<div class="card text-dark bg-light mb-3 mt-3">
+							<div class="card-header">${words.word }</div>
+							<div class="card-body">
+								<h5 class="card-title">${words.meaning }</h5>
+							</div>
+						</div>
+						<div class="card text-dark bg-light mb-3">
+							<div class="card-body">${words.indate }
+								<img class="rounded float-end" alt="trash" src="/resources/img/trashcan.png">
+								<a href="/word/toMemoWord?word_num=${words.word_num }"><img class="rounded float-end me-3" alt="check" src="/resources/img/check.png"></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:if>
+	</c:forEach>
+	
+	
+	<!-- Pagination -->
+	<nav aria-label="Page navigation example">
+		<ul class="pagination justify-content-center mt-4">
+			<li class="page-item disabled"><a class="page-link" href="#"
+				tabindex="-1" aria-disabled="true">이전</a></li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">다음</a></li>
+		</ul>
+	</nav>
+
 	<!-- footer -->
 	<div class = "text-center">
 		<hr />
@@ -133,8 +102,9 @@
 		イ·スヨン<br>
 		コ·ビョンス
 	</div>
-    <!-- Optional JavaScript; choose one of the two! -->
 	
+    <!-- Optional JavaScript; choose one of the two! -->
+
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
@@ -145,3 +115,4 @@
     -->
   </body>
 </html>
+

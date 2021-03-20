@@ -31,6 +31,7 @@ public class SuSooUserService {
 		String path = "";
 		if(vo != null) {
 			session.setAttribute("loginVO", vo);
+			session.setAttribute("loginID", vo.getS_id());
 			path = "redirect:/home";
 		} else {
 			path = "redirect:/";
