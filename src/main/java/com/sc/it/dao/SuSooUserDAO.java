@@ -1,7 +1,5 @@
 package com.sc.it.dao;
 
-import java.util.ArrayList;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -53,8 +51,8 @@ public class SuSooUserDAO {
 	}
 	
 	// PW 찾기
-	public ArrayList<UserVO> findPw(UserVO user) {
-		ArrayList<UserVO> list = null;
+	public String findPw(UserVO user) {
+		String list = null;
 		
 		try {
 			SuSooUserMapper mapper = session.getMapper(SuSooUserMapper.class);
@@ -63,5 +61,32 @@ public class SuSooUserDAO {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	// 회원정보 변경
+	public int changeUser(UserVO user) {
+		int cnt = 0;
+		
+		try {
+			SuSooUserMapper mapper = session.getMapper(SuSooUserMapper.class);
+			cnt = mapper.changeUser(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
+	
+	//PW변경
+	public int changePw(UserVO user) {
+		int cnt = 0;
+		
+		try {
+			SuSooUserMapper mapper = session.getMapper(SuSooUserMapper.class);
+			cnt = mapper.changePw(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cnt;
+		
 	}
 }

@@ -106,17 +106,24 @@
                 <div class="field">
                     <input type="text" id="s_phone" name="s_phone" pattern="(010)-\d{3,4}-\d{4}" title="핸드폰 번호 ex) 010-0000-0000" required placeholder="  핸드폰 번호를 입력해 주세요.">
                 </div>
-                <!--
-    <div class="phone" >
-        <input type="text" id="susoo_phone" name="susoo_phone" minlength="3" title="형식 010-0000-0000" required placeholder=" "> <img src="phone.png" id="phoneicon" name="phoneicon" /> <input type="text" id="phone" name="phone" minlength="4" required placeholder=" "> <img src="phone.png" id="phoneicon" /> <input type="text" id="phone" name="phone" minlength="4" required placeholder=" ">
-    </div>
-        -->
+                
                 <!-- 성별 -->
+<<<<<<< HEAD
+				<div class="join-name">
+					<span class="red"> -</span> <span> Gender</span>
+				</div>
+				<div class="radio">
+					<input type="checkbox" id="s_gender" name="s_gender" checked="checked"value="남자"> 
+					<img src="/resources/img/male.png" id="gendericon" /> <span> 남자 </span>   
+					<input type="checkbox" id="susoo_gender" name="susoo_gender" value="여자"> 
+					<img src="/resources/img/female.png" id="gendericonF" />  <span> 여자 </span>
+=======
                 <div class="join-name">
                     <span class="red"> -</span> <span> Gender</span>
                 </div>
                 <div class="radio">
-                    <input type="radio" id="s_gender" name="s_gender" checked="checked" value="남자">  <img src="/resources/img/male.png" id="gendericon" /> <span> 남자 </span>   <input type="radio" id="susoo_gender" name="susoo_gender" value="여자"> <img src="/resources/img/female.png" id="gendericonF" />  <span> 여자 </span>
+                    <input type="radio" id="s_gender" name="s_gender" checked="checked" value="남자">  <img src="/resources/img/male.png" id="gendericon" /> <span> 남자 </span>   <input type="radio" id="s_gender" name="susoo_gender" value="여자"> <img src="/resources/img/female.png" id="gendericonF" />  <span> 여자 </span>
+>>>>>>> e86c7875203b8aca3f468a3bc06e9374ae2f4a2e
                 </div>
 
                 <!-- 리셋 / 회원가입 -->

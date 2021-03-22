@@ -2,6 +2,7 @@ package com.sc.it.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,7 +47,7 @@ public class UserController {
 		return service.userLogout();
 	}
 	
-	// ID 찾기폼
+	// ID 찾기 폼
 	@RequestMapping(value = "/findIdForm", method = RequestMethod.GET)
 	public String findIdForm() {
 		return "user/findIdForm";
@@ -57,20 +58,52 @@ public class UserController {
 	public String findId(UserVO user, Model model) {
 		String id = service.findId(user);
 		model.addAttribute("s_id", id);
-		System.out.println(id);
 		return "user/findIdForm";
 	}
 	
-	// 비밀번호 찾기
+	// 비밀번호 찾기 폼
 	@RequestMapping(value = "/findPwForm", method = RequestMethod.GET)
 	public String findPwForm() {
 		return "user/findPwForm";
 	}
 	
+	// 비밀번호 찾기 
+	@RequestMapping(value = "/findPw", method = RequestMethod.GET)
+	public String findPw(UserVO user, Model model) {
+		String pw = service.findPw(user);
+		model.addAttribute("s_pw", pw);
+		return "user/findPwForm";
+	}
 	//마이페이지 폼 이동
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public String myPage() {
 		return "user/myPage";
+	}
+	
+	//회원정보 폼 이동
+	@RequestMapping(value = "/change-userForm", method = RequestMethod.GET)
+	public String changeUserForm() {
+		return "user/change-userForm";
+	}
+	
+	//비밀번호 변경 폼 이동
+	@RequestMapping(value = "/change-passwordForm", method = RequestMethod.GET)
+	public String changePasswordForm() {
+		return "user/change-passwordForm";
+	}
+	
+	//회원정보 변경
+	@RequestMapping(value = "/changeUser", method = RequestMethod.POST)
+	public String changeUser(UserVO user) {
+		String path = service.changeUser(user);
+		return path;
+	}
+	
+	//PW변경
+	@RequestMapping(value = "/changePw", method = RequestMethod.POST)
+	public String changePw(UserVO user) {
+		String path = service.changePw(user);
+		return path;
 	}
 	
 }

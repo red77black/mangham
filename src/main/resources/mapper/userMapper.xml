@@ -56,7 +56,7 @@
 </select>
 
 <!-- PW 찾기 -->
-<select id="findPw" parameterType="user" resultType="user">
+<select id="findPw" parameterType="user" resultType="string">
 	select
 		s_pw
 	from
@@ -66,5 +66,26 @@
 	and
 		s_email = #{s_email}
 </select>
+
+<update id="changeUser" parameterType="user">
+	update 
+	    susoo_user
+	set
+	    s_name = #{s_name}
+	    ,s_email = #{s_email}
+	    ,s_phone = #{s_phone}
+	    ,s_gender = #{s_gender}
+	where
+	    s_id = #{s_id}
+</update>
+
+<update id="changePw" parameterType="user">
+	update 
+	    susoo_user
+	set
+	    s_pw = #{s_npw}
+	where
+	    s_pw = #{s_pw}
+</update>
 
 </mapper>

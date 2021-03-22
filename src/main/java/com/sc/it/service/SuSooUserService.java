@@ -31,6 +31,7 @@ public class SuSooUserService {
 		String path = "";
 		if(vo != null) {
 			session.setAttribute("loginVO", vo);
+			session.setAttribute("loginID", vo.getS_id());
 			path = "redirect:/home";
 		} else {
 			path = "redirect:/";
@@ -51,5 +52,27 @@ public class SuSooUserService {
 	}
 	
 	// PW 찾기
+	public String findPw(UserVO user) {
+		String list = dao.findPw(user);
+		return list;
+	}
+	
+	// 회원정보 변경
+	public String changeUser(UserVO user) {
+		int cnt = dao.changeUser(user);
+		String path = cnt > 0 ? "redirect:/" : "redirect:/user/change-userForm";
+		
+		return path;
+	}
+	
+	//PW변경
+	public String changePw(UserVO user) {
+		int cnt = dao.changePw(user);
+		String path = cnt > 0 ? "redirect:/" : "redirect:/user/change-passwordForm";
+		
+		return path;
+		
+	}
+	
 	
 }
