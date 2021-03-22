@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<script type="text/javascript" src="/resources/js/jquery.js"></script>
+<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
   
 			function logout() {
@@ -14,17 +14,27 @@
 			}
 
 			function hideWord() {
-				document.getElementById("word").style.backgroundColor = "#000000";
-				}
+				$(".card-header").each(function(index,item){
+					$(this).css("background-color","#212529");
+				});
+			};
 
 			function hideMeaning() {
-				document.getElementById("meaning").style.backgroundColor = "#000000";
-				}
+				$(".card-title").each(function(index,item){
+					$(this).css("background-color","#212529");
+				});
+			};
 
 			function Original() {
-				document.getElementById("word").style.backgroundColor = "#f0f1f2";
-				document.getElementById("meaning").style.backgroundColor = "#f8f9fa";
-				}
+				$(".card-header").each(function(index,item){
+					$(this).css("background-color","#f0f1f2");
+				});
+				$(".card-title").each(function(index,item){
+					$(this).css("background-color","#f8f9fa");
+				});
+			};
+
+			
 </script>
 	
 	
@@ -87,9 +97,7 @@
 					</div>
 					<div class="card text-dark bg-light mb-3">
 						<div class="card-body">${words.indate }
-							<a href="/word/deleteWord?word_num=${words.word_num }">
-								<img class="rounded float-end" alt="trash" src="/resources/img/trashcan.png">
-							</a>
+							<a href="/word/deleteWord?word_num=${words.word_num }&num=0"><img class="rounded float-end" alt="trash" src="/resources/img/trashcan.png"></a>
 							<a><img class="rounded float-end me-3" alt="check" src="/resources/img/check.png"></a>
 						</div>
 					</div>

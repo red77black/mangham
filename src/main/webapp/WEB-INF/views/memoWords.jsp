@@ -4,6 +4,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+  <script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
   <script type="text/javascript">
   
 			function logout() {
@@ -11,6 +12,27 @@
 					location.href = "/user/logout";
 				}
 			}
+
+			function hideWord() {
+				$(".card-header").each(function(index,item){
+					$(this).css("background-color","#212529");
+				});
+			};
+
+			function hideMeaning() {
+				$(".card-title").each(function(index,item){
+					$(this).css("background-color","#212529");
+				});
+			};
+
+			function Original() {
+				$(".card-header").each(function(index,item){
+					$(this).css("background-color","#f0f1f2");
+				});
+				$(".card-title").each(function(index,item){
+					$(this).css("background-color","#f8f9fa");
+				});
+			};
 		</script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -53,8 +75,9 @@
 	<!-- 숨김 기능 -->
 	<div class="container mt-2">
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-			<button class="btn btn-light me-md-2" type="button">단어 숨김</button>
-			<button class="btn btn-light" type="button">뜻 숨김</button>
+			<button class="btn btn-light me-md-2" type="button" onclick="return hideWord();">단어 숨김</button>
+			<button class="btn btn-light" type="button" onclick="return hideMeaning();">뜻 숨김</button>
+			<button class="btn btn-light" type="button" onclick="return Original();">원래대로</button>
 		</div>
 	</div>
 	
@@ -72,8 +95,8 @@
 						</div>
 						<div class="card text-dark bg-light mb-3">
 							<div class="card-body">${words.indate }
-								<img class="rounded float-end" alt="trash" src="/resources/img/trashcan.png">
-								<a href="/word/toNotMemoWord?word_num=${words.word_num }"><img class="rounded float-end me-3" alt="check" src="/resources/img/check.png"></a>
+								<a href="/word/deleteWord?word_num=${words.word_num }&num=1"><img class="rounded float-end" alt="trash" src="/resources/img/trashcan.png"></a>
+								<a href="/word/toNotMemoWord?word_num=${words.word_num }"><img class="rounded float-end me-3" alt="check" src="/resources/img/check1.png"></a>
 							</div>
 						</div>
 					</div>

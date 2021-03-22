@@ -62,21 +62,31 @@ public class WordController {
 	@RequestMapping(value = "/toMemoWord", method = RequestMethod.GET)
 	public String updateMemoWord(int word_num) {
 		service.updateMemoWord(word_num);
-		return "notMemoWords";
+		return "redirect:/word/notMemoWords";
 	}
 	
 	//미암기 단어로 체인지
 	@RequestMapping(value = "/toNotMemoWord", method = RequestMethod.GET)
 	public String updateNotMemoWord(int word_num) {
 		service.updateNotMemoWord(word_num);
-		return "notMemoWords";
+		return "redirect:/word/memoWords";
 	}
 	
 	 //단어 삭제
 	 @RequestMapping(value = "/deleteWord", method = RequestMethod.GET) 
-	public String deleteWord(int word_num) { 
+	public String deleteWord(int word_num, int num) { 
 		service.deleteWord(word_num); 
-	 	return "words"; 
+		String path = "";
+		
+		if(num == 0) {
+			path = "redirect:/word/words";
+		}else if(num == 1) {
+			path = "redirect:/word/memoWords";
+		}else if(num == 2) {
+			path = "redirect:/word/notMemoWords";
+		}
+		
+	 	return path; 
 	 }
 	 
 	 
