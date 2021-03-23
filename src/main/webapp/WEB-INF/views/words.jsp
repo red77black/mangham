@@ -34,6 +34,24 @@
 				});
 			};
 
+			function changeCheck(checking){
+				
+			        $.ajax({
+			            url: "changeCheck",
+			            type: "POST",
+			            data: {
+			            	word_num : checking
+			            },
+			            success: function(){
+				            alert('안녕');
+			            },
+			            error: function(){
+			                alert("err");
+			            }
+			        });
+			}
+			
+			
 			
 </script>
 	
@@ -98,7 +116,8 @@
 					<div class="card text-dark bg-light mb-3">
 						<div class="card-body">${words.indate }
 							<a href="/word/deleteWord?word_num=${words.word_num }&num=0"><img class="rounded float-end" alt="trash" src="/resources/img/trashcan.png"></a>
-							<a><img class="rounded float-end me-3" alt="check" src="/resources/img/check.png"></a>
+							<c:if test="${words.checking == 1 }"><a href="#" onclick="changeCheck(${words.checking});"><img class="rounded float-end me-2" alt="check" src="/resources/img/check1.png" style="width: 22px"></a></c:if>
+							<c:if test="${words.checking == 2 }"><a href="#" onclick="changeCheck(${words.checking});"><img class="rounded float-end me-2" alt="check" src="/resources/img/check.png"></a></c:if>
 						</div>
 					</div>
 				</div>

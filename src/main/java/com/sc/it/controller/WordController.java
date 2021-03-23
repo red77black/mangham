@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sc.it.service.SuSooWordService;
 import com.sc.it.vo.WordVO;
@@ -73,7 +74,7 @@ public class WordController {
 	}
 	
 	 //단어 삭제
-	 @RequestMapping(value = "/deleteWord", method = RequestMethod.GET) 
+	@RequestMapping(value = "/deleteWord", method = RequestMethod.GET) 
 	public String deleteWord(int word_num, int num) { 
 		service.deleteWord(word_num); 
 		String path = "";
@@ -89,7 +90,20 @@ public class WordController {
 	 	return path; 
 	 }
 	 
-	 
+	
+	//비동기식 미/암기 처리
+	@RequestMapping(value = "/changeCheck", method = RequestMethod.POST)
+	@ResponseBody 
+	public void changeCheck(int word_num) {
+		
+		if(word_num == 1) {
+			service.updateNotMemoWord(word_num); 
+		}else if(word_num == 2) {
+			service.updateMemoWord(word_num);
+		}
+		
+	}
+		 
 	 
 	 
 	

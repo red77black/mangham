@@ -96,7 +96,7 @@
 						<div class="card text-dark bg-light mb-3">
 							<div class="card-body">${words.indate }
 								<a href="/word/deleteWord?word_num=${words.word_num }&num=1"><img class="rounded float-end" alt="trash" src="/resources/img/trashcan.png"></a>
-								<a href="/word/toNotMemoWord?word_num=${words.word_num }"><img class="rounded float-end me-3" alt="check" src="/resources/img/check1.png"></a>
+								<a href="/word/toNotMemoWord?word_num=${words.word_num }"><img class="rounded float-end me-3" alt="check" src="/resources/img/check1.png" style="width: 22px"></a>
 							</div>
 						</div>
 					</div>
