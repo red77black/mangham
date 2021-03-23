@@ -11,6 +11,14 @@
    <script type="text/javascript">
 	window.onload = function(){
 		var id = document.getElementById("id").value;
+		var err = document.getElementById("err").value;
+		
+		if (err == null || err.length == 0) {
+			return false;
+		} else {
+			alert('${errMsg}');
+			document.location.href = "/user/findIdForm";
+		}
 		
 		if (id == null || id.length == 0) {
 			return false;
@@ -49,6 +57,7 @@
                   </div>
               </form>
                   <input type="hidden" id="id" value="${s_id }">
+                  <input type="hidden" id="err" value="${errMsg }">
 		</div>
       </div>
 	

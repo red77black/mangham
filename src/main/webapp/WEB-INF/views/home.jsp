@@ -5,7 +5,7 @@
 <html lang="en">
   <head>
   <!-- 자바스크립트 번역 -->
-  <script src="resources/js/jquery-3.2.1.min.js"></script>
+  <script src="/resources/js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript">
 	
 		function logout() {

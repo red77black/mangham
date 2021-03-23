@@ -1,5 +1,8 @@
 package com.sc.it.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -16,6 +19,8 @@ public class UserController {
 
 	@Autowired
 	private SuSooUserService service;
+	@Autowired
+	private HttpSession session;
 	
 	//회원가입 폼
 	@RequestMapping(value = "/joinForm", method = RequestMethod.GET)
@@ -37,8 +42,19 @@ public class UserController {
 	
 	//로그인
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(UserVO user) {
-		return service.selectUser(user);
+	public String login(UserVO user, Model model) {
+		UserVO vo = service.selectUser(user);
+		String errMsg = "";
+		
+		if(vo != null) {
+			session.setAttribute("loginVO", vo);
+			session.setAttribute("loginID", vo.getS_id());
+		} else {
+			errMsg = "정보가 틀리게 입력되었습니다.";
+			model.addAttribute("errMsg", errMsg);
+			return "index";
+		}
+		return "redirect:/home";
 	}
 	
 	//로그아웃
@@ -57,8 +73,17 @@ public class UserController {
 	@RequestMapping(value = "/findId", method = RequestMethod.GET)
 	public String findId(UserVO user, Model model) {
 		String id = service.findId(user);
-		model.addAttribute("s_id", id);
-		return "user/findIdForm";
+		String errMsg = "";
+		
+		if(id != null) {
+			model.addAttribute("s_id", id);
+			return "user/findIdForm";
+		} else {
+			errMsg = "정보가 틀리게 입력되었습니다.";
+			model.addAttribute("errMsg", errMsg);
+			return "user/findIdForm";
+		}
+		
 	}
 	
 	// 비밀번호 찾기 폼
@@ -71,9 +96,18 @@ public class UserController {
 	@RequestMapping(value = "/findPw", method = RequestMethod.GET)
 	public String findPw(UserVO user, Model model) {
 		String pw = service.findPw(user);
-		model.addAttribute("s_pw", pw);
-		return "user/findPwForm";
+		String errMsg = "";
+		
+		if(pw != null) {
+			model.addAttribute("s_pw", pw);
+			return "user/findPwForm";
+		} else {
+			errMsg = "정보가 틀리게 입력되었습니다.";
+			model.addAttribute("errMsg", errMsg);
+			return "user/findPwForm";
+		}
 	}
+	
 	//마이페이지 폼 이동
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public String myPage() {

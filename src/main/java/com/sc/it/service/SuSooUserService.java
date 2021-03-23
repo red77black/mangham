@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.sc.it.dao.SuSooUserDAO;
 import com.sc.it.vo.UserVO;
@@ -24,19 +25,10 @@ public class SuSooUserService {
 		return path;
 	}
 	
-
 	// 로그인
-	public String selectUser(UserVO user) {
-		UserVO vo = dao.selectUser(user);
-		String path = "";
-		if(vo != null) {
-			session.setAttribute("loginVO", vo);
-			session.setAttribute("loginID", vo.getS_id());
-			path = "redirect:/home";
-		} else {
-			path = "redirect:/";
-		}
-		return path;
+	public UserVO selectUser(UserVO user) {
+		return dao.selectUser(user);
+		
 	}
 	
 	// 로그아웃
