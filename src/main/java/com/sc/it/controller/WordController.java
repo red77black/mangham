@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sc.it.service.SuSooWordService;
 import com.sc.it.vo.WordVO;
@@ -62,24 +63,47 @@ public class WordController {
 	@RequestMapping(value = "/toMemoWord", method = RequestMethod.GET)
 	public String updateMemoWord(int word_num) {
 		service.updateMemoWord(word_num);
-		return "notMemoWords";
+		return "redirect:/word/notMemoWords";
 	}
 	
 	//미암기 단어로 체인지
 	@RequestMapping(value = "/toNotMemoWord", method = RequestMethod.GET)
 	public String updateNotMemoWord(int word_num) {
 		service.updateNotMemoWord(word_num);
-		return "notMemoWords";
+		return "redirect:/word/memoWords";
 	}
 	
 	 //단어 삭제
-	 @RequestMapping(value = "/deleteWord", method = RequestMethod.GET) 
-	public String deleteWord(int word_num) { 
+	@RequestMapping(value = "/deleteWord", method = RequestMethod.GET) 
+	public String deleteWord(int word_num, int num) { 
 		service.deleteWord(word_num); 
-	 	return "words"; 
+		String path = "";
+		
+		if(num == 0) {
+			path = "redirect:/word/words";
+		}else if(num == 1) {
+			path = "redirect:/word/memoWords";
+		}else if(num == 2) {
+			path = "redirect:/word/notMemoWords";
+		}
+		
+	 	return path; 
 	 }
 	 
-	 
+	
+	//비동기식 미/암기 처리
+	@RequestMapping(value = "/changeCheck", method = RequestMethod.POST)
+	@ResponseBody 
+	public void changeCheck(int word_num) {
+		
+		if(word_num == 1) {
+			service.updateNotMemoWord(word_num); 
+		}else if(word_num == 2) {
+			service.updateMemoWord(word_num);
+		}
+		
+	}
+		 
 	 
 	 
 	

@@ -108,7 +108,6 @@
                 </div>
                 
                 <!-- 성별 -->
-<<<<<<< HEAD
 				<div class="join-name">
 					<span class="red"> -</span> <span> Gender</span>
 				</div>
@@ -117,20 +116,11 @@
 					<img src="/resources/img/male.png" id="gendericon" /> <span> 남자 </span>   
 					<input type="checkbox" id="susoo_gender" name="susoo_gender" value="여자"> 
 					<img src="/resources/img/female.png" id="gendericonF" />  <span> 여자 </span>
-=======
-                <div class="join-name">
-                    <span class="red"> -</span> <span> Gender</span>
-                </div>
-                <div class="radio">
-                    <input type="radio" id="s_gender" name="s_gender" checked="checked" value="남자">  <img src="/resources/img/male.png" id="gendericon" /> <span> 남자 </span>   <input type="radio" id="s_gender" name="susoo_gender" value="여자"> <img src="/resources/img/female.png" id="gendericonF" />  <span> 여자 </span>
->>>>>>> e86c7875203b8aca3f468a3bc06e9374ae2f4a2e
-                </div>
-
                 <!-- 리셋 / 회원가입 -->
                 <div class="formbutton">
                     <input type="reset" value="초기화" /> <input type="submit" value="회원 가입" />
                 </div>
-
+            </div>
             </div>
         </div>
     </form>
