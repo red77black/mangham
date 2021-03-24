@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="/resources/css/style.css">
    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
    <script type="text/javascript">
+   $("#loginCheck").prop("checked", true);
+
+   $("#loginCheck").prop("checked", false);
+   $("#loginCheck").is(":checked")
+   </script>
+   <script type="text/javascript">
    function joinFormCheck(){
 		location.href = "/user/joinForm";
 	}
@@ -27,16 +33,15 @@
               <form action="/user/login" method="post">
                   <div class="field">
                       <span class="fa fa-user"></span>
-                      <input type="text" id="s_id" name="s_id" required placeholder="ID를 입력해 주세요.">
+                      <input type="text" id="s_id" name="s_id" value="${s_id }" required placeholder="ID를 입력해 주세요.">
                   </div>
                   <div class="field space">
                       <span class="fa fa-lock"></span>
                       <input type="password" id="s_pw" name="s_pw" class="pass-key" required placeholder="Password">
-                      <span class="show">SHOW</span>
                   </div>
                   <div class="pass">
                       <a>
-                          <input type="checkbox" />  ID 기억하기
+                          <input type="checkbox" id="loginCheck" name = "loginCheck" value = "false">  ID 기억하기
                       </a>
                   </div>
                   <div class="field">
@@ -72,7 +77,6 @@
        }
       });
     </script>
-
 
   </body>
 </html>

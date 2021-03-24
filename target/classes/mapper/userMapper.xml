@@ -43,6 +43,18 @@
 		s_pw = #{s_pw}
 </select>
 
+<!-- ID 선택 -->
+<select id="homeUser" parameterType="string" resultType="user">
+	select
+		s_name
+		,s_id
+	from
+		susoo_user
+	where
+		s_id = #{s_id}
+</select>
+
+
 <!-- ID 찾기 -->
 <select id="findId" parameterType="user" resultType="string">
 	select
@@ -88,4 +100,17 @@
 	    s_pw = #{s_pw}
 </update>
 
+<select id="checkID" parameterType="string" resultType="user">
+select
+	s_name
+	,s_id
+	,s_pw
+	,s_gender
+	,s_email
+	,s_phone
+from
+	susoo_user
+where
+	s_id = #{s_id}
+</select>
 </mapper>

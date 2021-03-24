@@ -1,11 +1,18 @@
 package com.sc.it.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sc.it.service.SuSooUserService;
 import com.sc.it.vo.UserVO;
@@ -14,6 +21,8 @@ import com.sc.it.vo.UserVO;
 @RequestMapping(value = "/user")
 public class UserController {
 
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	
 	@Autowired
 	private SuSooUserService service;
 	
@@ -31,20 +40,60 @@ public class UserController {
 	
 	//로그인 폼
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String loginForm() {
+	public String loginForm(HttpServletRequest request, Model model) {
+		logger.info("로그인 페이지 이동");
+		//사용자쪽에 내가 숨겨놓은 쿠키가 있는지 확인한다.
+		Cookie[] cookies = request.getCookies();
+		
+		if(cookies != null) {
+			for(Cookie c : cookies) {
+				if("cookieID".equals(c.getName())) {
+					model.addAttribute("s_id", c.getValue());
+				}
+			}
+		}
 		return "/";
 	}
 	
 	//로그인
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(UserVO user) {
-		return service.selectUser(user);
+	public String login(UserVO user, HttpSession session, boolean loginCheck, HttpServletResponse response, Model model) {
+		UserVO vo = service.selectUser(user);
+		String errMsg = "";
+		
+		if(vo != null) {
+			//session scope에 login 성공한 유저의 정보를 저장하는 것
+			logger.info("로그인 처리");
+			session.setAttribute("s_id", user.getS_id());
+			session.setAttribute("s_name", vo.getS_name());
+			
+			Cookie c = new Cookie("cookieID", user.getS_id());
+			if(loginCheck) {
+			//아이디 기억하기를 선택한 상황
+				c.setMaxAge(60*60*24);
+			}else {
+				//아이디 기억하기를 선택하지 않은 상황
+				c.setMaxAge(0);
+			}
+			response.addCookie(c);
+		}
+		//비밀번호가 틀린상황
+		else {
+			errMsg = "정보가 틀리게 입력되었습니다.";
+			model.addAttribute("errMsg", errMsg);
+			return "/";
+		}
+		return "redirect:/home";
 	}
 	
 	//로그아웃
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String userLogout() {
-		return service.userLogout();
+	public String userLogout(HttpSession session) {
+		logger.info("로그아웃 처리");
+		session.removeAttribute("userVO");
+		session.removeAttribute("s_id");
+		session.removeAttribute("s_name");
+		return "redirect:/";
 	}
 	
 	// ID 찾기 폼

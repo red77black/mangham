@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 회원정보 처리 SQL -->
+<mapper namespace="com.sc.it.dao.SuSooWordMapper">
+
+<!-- 단어 생성 -->
+<insert id="insertWord" parameterType="word">
+insert into
+    susoo_word(
+        word_num
+        ,word
+        ,meaning
+        ,s_id
+        ,wordlist_num
+    )values(
+        word_num_seq.nextval
+        ,#{word}
+        ,#{meaning}
+        ,#{s_id}
+        ,#{wordlist_num}
+    )
+</insert>
+</mapper>

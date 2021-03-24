@@ -26,22 +26,8 @@ public class SuSooUserService {
 	
 
 	// 로그인
-	public String selectUser(UserVO user) {
-		UserVO vo = dao.selectUser(user);
-		String path = "";
-		if(vo != null) {
-			session.setAttribute("loginVO", vo);
-			path = "redirect:/home";
-		} else {
-			path = "redirect:/";
-		}
-		return path;
-	}
-	
-	// 로그아웃
-	public String userLogout() {
-		session.removeAttribute("loginVO");
-		return "redirect:/";
+	public UserVO selectUser(UserVO user) {
+		return dao.selectUser(user);
 	}
 	
 	// ID 찾기
@@ -73,5 +59,13 @@ public class SuSooUserService {
 		
 	}
 	
+	public String homeUser(String s_id) {
+		String list = dao.homeUser(s_id);
+		return list;
+	}
 	
+	// ID중복체크
+	public UserVO checkID(String s_id) {
+		return dao.checkID(s_id);
+	}
 }

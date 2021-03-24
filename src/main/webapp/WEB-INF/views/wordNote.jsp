@@ -11,6 +11,7 @@
 					location.href = "/user/logout";
 				}
 			}
+
 		</script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -94,17 +95,23 @@
 							<th scope="col"></th>
 							<th scope="col"></th>
 							<th scope="col" class="text-end">
-								<img alt="plus" src="/resources/img/plus.png">
+								<input type="button" src="/resources/img/plus.png" onclick="window.open('../word/wordListForm','window','location=no, directories=no,resizable=no,status=no,toolbar=no,menubar=no, width=600,height=450,left=0, top=0, scrollbars=yes');return false">
 							</th>
 						</tr>
 					</thead>
 					<tbody>
+							<c:forEach items="${list }" var="wordl">
 						<tr>
-							<th scope="row"><a href="/word/words" style="color: black; text-decoration: none;">명사</a></th>
-							<td></td>
-							<td></td>
+								<td>
+									<a href="/word/words" style="color: black; text-decoration: none;">${wordl.TITLE }</a>
+								</td>
+								<td>
+									<a href="/word/deleteWordNote?wordlist_num=${wordl.WORDLIST_NUM }"><img alt="trash" src="/resources/img/trashcan.png"></a>
+								</td>
+						</tr>
+							</c:forEach>
+						<tr>
 							<td class="text-end">
-								<img alt="plus" src="/resources/img/trashcan.png">
 							</td>
 						</tr>
 					</tbody>
