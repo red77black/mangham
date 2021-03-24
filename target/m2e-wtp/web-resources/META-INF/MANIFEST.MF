@@ -1,5 +1,13 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: SCIT
+=======
+<<<<<<< HEAD
+Built-By: sooyeon
+=======
+Built-By: ko
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
+>>>>>>> 69d4a7370b4f98c45e96f31190f8fd905fb20d1f
 Build-Jdk: 15
 Created-By: Maven Integration for Eclipse
 

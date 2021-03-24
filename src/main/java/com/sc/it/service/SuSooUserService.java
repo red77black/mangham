@@ -28,6 +28,8 @@ public class SuSooUserService {
 	// 로그인
 	public UserVO selectUser(UserVO user) {
 		return dao.selectUser(user);
+<<<<<<< HEAD
+=======
 		
 	}
 	
@@ -36,6 +38,7 @@ public class SuSooUserService {
 		session.removeAttribute("loginVO");
 		session.removeAttribute("loginID");
 		return "redirect:/";
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 	}
 	
 	// ID 찾기
@@ -67,5 +70,13 @@ public class SuSooUserService {
 		
 	}
 	
+	public String homeUser(String s_id) {
+		String list = dao.homeUser(s_id);
+		return list;
+	}
 	
+	// ID중복체크
+	public UserVO checkID(String s_id) {
+		return dao.checkID(s_id);
+	}
 }

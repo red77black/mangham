@@ -89,4 +89,30 @@ public class SuSooUserDAO {
 		return cnt;
 		
 	}
+	
+	// ID 선택
+	public String homeUser(String s_id) {
+		String list = null;
+		
+		try {
+			SuSooUserMapper mapper = session.getMapper(SuSooUserMapper.class);
+			list = mapper.homeUser(s_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	// ID중복체크
+	public UserVO checkID(String s_id) {
+		UserVO vo = null;
+		
+		try {
+			SuSooUserMapper mapper = session.getMapper(SuSooUserMapper.class);
+			vo = mapper.checkID(s_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 }

@@ -1,57 +1,89 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%> 
 <!doctype html>
-<html lang="en">
+<html lang="ja">
   <head>
+  <meta charset="UTF-8">
+  <title>[메인화면]</title>
   <!-- 자바스크립트 번역 -->
   <script src="/resources/js/jquery-3.2.1.min.js"></script>
+<<<<<<< HEAD
+	<script type="text/javascript">		
+=======
 	<script type="text/javascript">
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 	
-		function logout() {
-			if(confirm("로그아웃 하시겠습니까?")){
-				location.href = "/user/logout";
+	$(function(){
+		$("#translate").on("click",function(){
+			var source = $("#source").val();
+			var target = $("#target").val();
+			var text = $("#text").val();
+
+			$.ajax({
+				url : '../translate',
+				type : 'post',
+				data : {
+					source : source,
+					target : target,
+					text : text
+				},
+				success : function(data){
+					//JSON 형태의 문자열을 JSON 객체로 변환
+					var jsonObject = JSON.parse(data);
+					console.log(jsonObject);
+					
+					$("#translatedText").html(jsonObject.message.result.translatedText);
+				},
+				error : function(e){
+					console.log(e);	
 				}
-		}
-		
-		$(function() {
-			$("#translate")
-					.on(
-							"click",
-							function() {
-								var source = $("#source").val();
-								var target = $("#target").val();
-								var text = $("#text").val();
-
-								$
-										.ajax({
-											url : 'translate',
-											type : 'post',
-											data : {
-												source : source,
-												target : target,
-												text : text
-											},
-											success : function(data) {
-												//JSON 형태의 문자열을 JSON 객체로 변환
-												var jsonObject = JSON
-														.parse(data);
-												console.log(jsonObject);
-
-												$("#translatedText1")
-														.html(
-																jsonObject.message.result.translatedText);
-											},
-											error : function(e) {
-												console.log(e);
-											}
-										});
-
-							});
+			});
+			
 		});
+	});
+
+	$(function(){
+		$("#saveTranslate").on("click",function(){
+			var source = $("#source").val();
+			var target = $("#target").val();
+			var text = $("#word").val();
+
+			$.ajax({
+				url : '../saveTranslate',
+				type : 'post',
+				data : {
+					source : source,
+					target : target,
+					text : text
+				},
+				success : function(data){
+					//JSON 형태의 문자열을 JSON 객체로 변환
+					var jsonObject = JSON.parse(data);
+					console.log(jsonObject);
+					
+					$("#meaning").html(jsonObject.message.result.translatedText);
+				},
+				error : function(e){
+					console.log(e);	
+				}
+			});
+			
+		});
+	});
+	</script>
+	<script type="text/javascript">
+
+	function logout() {
+		if(confirm("로그아웃 하시겠습니까?")){
+			location.href = "/user/logout";
+			}
+	}
+
+	
+
+	
 	</script>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
@@ -81,6 +113,9 @@
                       </li>
                   </ul>
                   <ul class="navbar-nav ml-auto">
+                  	  <li class="nav-item">
+                  	  	<span class=" nav-link fw-bolder mb-2"> ${sessionScope.s_name }님 환영합니다! </span>
+                  	  </li>
                       <li class="nav-item">
                           <a class="nav-link fw-bolder"
                              href="#" onclick="return logout();">로그아웃</a>
@@ -108,7 +143,7 @@
                                   <option value="es">스페인어</option>
                                   <option value="fr">프랑스어</option>
                               </select>
-                              <button class="btn btn-outline" style="float:right">
+                              <button class="btn btn-outline" style="float:right" id="changebtn" name="changebtn">
                                   <img src="/resources/img/change.png" width="20" height="20"/>
                               </button>
                           </div>
@@ -130,6 +165,7 @@
                   </div>
               </div>
           </div>
+          
           <div class="col-sm-6">
               <div class="container">
                   <div class="card mx-0 me-5">
@@ -157,6 +193,7 @@
           </div>
       </div>
 
+	<form action="/word/words" method="post">
       <!-- 저장 -->
       <div class="row mt-5">
           <div class="col-sm-6">
@@ -166,21 +203,30 @@
                           <div class="mt-2">
                               <div class="form-floating">
                                   <textarea class="form-control" style="height: 60px; padding: 17px;"
-                                            placeholder="Leave a comment here" id="text"></textarea>
+                                            placeholder="Leave a comment here" id="word" name="word"></textarea>
                               </div>
                           </div>
+                          <input type="hidden" id="s_id" name="s_id" value="${sessionScope.s_id }">
                           <div align="right">
-                              <div class="btn mt-2 btn-outline-info" style="width: 260px; height:50px;">
-                                  <select class="btn mb-5 btn-outline">
+                              <div class="btn mt-2 btn-outline-info" style="width: 270px; height:50px;">
+                                  <select class="btn mb-5 btn-outline" id="wordlist_num" name="wordlist_num">
                                       <option value="0">--- 게시판 선택 ---</option>
+                                      <c:forEach items="${list }" var="wordl">
+                                      	<option value="${wordl.WORDLIST_NUM }">${wordl.TITLE }</option>
+                                      </c:forEach>
                                   </select>
-                                  <button class="btn mb-5">
+                                  <button class="btn mb-5"   onclick="window.open('../word/wordListForm','window','location=no, directories=no,resizable=no,status=no,toolbar=no,menubar=no, width=600,height=450,left=0, top=0, scrollbars=yes');return false">
                                       <img src="/resources/img/plus.png" width="17" height="20" style="margin-bottom:3px;"/>
                                   </button>
                               </div>
-                              <button type="button"
+                              <button type="submit"
                                       class="btn btn-info btn-lg mt-2 text-light fw-bolder"style="height:50px;">
                                   단어저장
+                              </button>
+                              <button type="button"
+                                      class="btn btn-info btn-lg mt-2 text-light fw-bolder"
+                                      id="saveTranslate" style="height:50px;">
+                                  번역하기
                               </button>
                           </div>
                       </div>
@@ -194,7 +240,7 @@
                           <div class="mt-2">
                               <div class="form-floating" id="translatedText">
                                   <textarea class="form-control" style="height: 60px; padding: 17px; background-color: white;" readonly="readonly"
-                                            placeholder="Leave a comment here" id="translatedText1"></textarea>
+                                            placeholder="Leave a comment here" id="meaning" name="meaning"></textarea>
                                   <!--  <label for="floatingTextarea"></label>-->
                               </div>
                               <!--  <button type="button" class="btn btn-info btn-lg mt-2 text-white">+단어장 저장</button>-->
@@ -204,6 +250,7 @@
               </div>
           </div>
       </div>
+      </form>
       <br>
       <!-- footer -->
       <div class="text-center">
@@ -223,4 +270,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
     -->
   </body>
+  <script>
+
+</script>
+
+
 </html>

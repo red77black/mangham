@@ -1,13 +1,20 @@
 package com.sc.it.service;
 
+<<<<<<< HEAD
+=======
 import java.util.ArrayList;
 
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sc.it.dao.SuSooWordDAO;
+<<<<<<< HEAD
+import com.sc.it.dao.SuSooWordListDAO;
+=======
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 import com.sc.it.vo.WordVO;
 
 @Service
@@ -15,6 +22,21 @@ public class SuSooWordService {
 
 	@Autowired
 	private SuSooWordDAO dao;
+<<<<<<< HEAD
+	
+	@Autowired
+	private SuSooWordListDAO listDao;
+	
+	@Autowired
+	private HttpSession session;
+	
+	public String insertWord(WordVO word) {
+		int cnt = dao.insertWord(word);
+		String path = cnt > 0 ? "redirect:/home" : "redirect:/home";
+		return path;
+	}
+	
+=======
 	@Autowired
 	private HttpSession session;
 	
@@ -75,4 +97,5 @@ public class SuSooWordService {
 		return cnt;
 			
 	}	
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 }

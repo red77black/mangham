@@ -5,11 +5,21 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.sc.it.vo.UserVO" alias="user" />
+<<<<<<< HEAD
+		<typeAlias type="com.sc.it.vo.WordListVO" alias="wordl" />
+		<typeAlias type="com.sc.it.vo.WordVO" alias="word" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="mapper/userMapper.xml"/>
+		<mapper resource="mapper/wordListMapper.xml"/>
+		<mapper resource="mapper/wordMapper.xml"/>
+=======
 		<typeAlias type="com.sc.it.vo.WordVO" alias="word" />
 		<!-- <typeAlias type="com.sc.it.vo.WordListVO" alias="wordList" /> -->
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/userMapper.xml" />
 		<mapper resource="mapper/wordMapper.xml" />
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 	</mappers>
 </configuration>

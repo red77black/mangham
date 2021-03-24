@@ -1,7 +1,10 @@
 package com.sc.it.dao;
 
+<<<<<<< HEAD
+=======
 import java.util.ArrayList;
 
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,6 +17,19 @@ public class SuSooWordDAO {
 	@Autowired
 	private SqlSession session;
 	
+<<<<<<< HEAD
+	// 단어 생성
+	public int insertWord(WordVO word) {
+		int vo = 0;
+		
+		try {
+			SuSooWordMapper mapper = session.getMapper(SuSooWordMapper.class);
+			vo = mapper.insertWord(word);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+=======
 	//전체 단어 가져오기
 	public ArrayList<WordVO> selectAllWord(String id){
 		ArrayList<WordVO> words = null;
@@ -105,5 +121,6 @@ public class SuSooWordDAO {
 		}
 		return cnt;
 			
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 	}
 }

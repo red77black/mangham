@@ -22,4 +22,9 @@ public interface SuSooUserMapper {
 	// PW변경
 	public int changePw(UserVO user);
 	
+	// ID 선택
+	public String homeUser(String s_id);
+	
+	// ID중복체크
+	public UserVO checkID(String s_id);
 }

@@ -7,6 +7,48 @@
     <title> [ 회원가입 ] </title>
     <link rel="stylesheet" href="/resources/css/joinStyle.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+      <script src="/resources/js/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">    
+    $(function(){
+		$("#checkbtn").on("click",function(){
+			var s_id = $("#s_id").val();
+
+			$.ajax({
+				type:"post",
+				url:"/user/idCheck",
+				data:{
+					s_id : s_id
+				},
+				success:function(data){
+					if(data){
+						alert("사용중인 ID 입니다 .");
+						$("#s_id").val("");
+						$("#s_id").focus();
+					}else if($("#s_id").val() == ""){
+						alert("아이디를 입력해주세요.");
+						$("#s_id").focus();
+						return false;
+					}else if($("#s_id").val().length <= 5){
+						alert("5~12글자 사이로 입력해주세요");
+						$("#s_id").focus();
+						$("#s_id").val("");
+						}
+					else{
+						if(confirm("해당 아이디를 사용 하시겠습니까?")){
+							$("#s_id").prop("readonly", true);
+							$("#ddd").val("true");
+						}
+					}
+				},
+				error:function(e){
+					console.log(e);
+					}
+
+				});
+			});
+        });
+</script>
     <script>
         function formCheck() {
             // 아이디 입력 
@@ -15,7 +57,7 @@
             if (id == null || id.length == 0) {
                 alert("ID를 입력해 주세요.");
                 return false;
-            } else if (id.length < 5 || id.length > 12) {
+            } else if (id.length  < 5 || id.length > 12) {
                 alert("ID는 5글자 ~ 12글자 사이로 입력해 주세요.");
                 return false;
             }
@@ -45,11 +87,19 @@
                 alert("이름는 2글자 ~ 12글자 사이로 입력해 주세요.");
                 return false;
             }
+
+            var ddd = document.getElementById("ddd").value;
+
+            if(ddd == null || ddd.length == 0){
+            	alert("중복검사를 실행해 주세요.");
+            	return false;
+                }
+            
             return true;
         }
     </script>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
@@ -60,11 +110,11 @@
                 <header>SuSoo</header>
 
                 <!-- 아이디 -->
-                <div class="join-name">
+                <div class="join-name"> 
                     <span class="red"> -</span> ID
-                </div>
+                </div> <div id="checkID"></div>
                 <div class="field-id">
-                    <input type="text" id="s_id" name="s_id" minlength="5" maxlength="12" title="ID를 입력해 주세요." required placeholder="  ID를 입력해 주세요."> <input type="button" id="check" value="중복 검사" />
+                    <input type="text" id="s_id" name="s_id" minlength="5" maxlength="12" title="ID를 입력해 주세요." required placeholder="  ID를 입력해 주세요."> <input type="button" id="checkbtn" name="checkbtn"value="중복 검사"/>
                 </div>
 
                 <!-- 비밀번호 -->
@@ -108,6 +158,15 @@
                 </div>
                 
                 <!-- 성별 -->
+<<<<<<< HEAD
+                <div class="join-name">
+                    <span class="red"> -</span> <span> Gender</span>
+                </div>
+                <div class="radio">
+                    <input type="radio" id="s_gender" name="s_gender" checked="checked" value="남자">  <img src="/resources/img/male.png" id="gendericon" /> <span> 남자 </span>   <input type="radio" id="s_gender" name="susoo_gender" value="여자"> <img src="/resources/img/female.png" id="gendericonF" />  <span> 여자 </span>
+                </div>
+					<input type="hidden" id="ddd" name="ddd" value="">
+=======
 				<div class="join-name">
 					<span class="red"> -</span> <span> Gender</span>
 				</div>
@@ -116,9 +175,10 @@
 					<img src="/resources/img/male.png" id="gendericon" /> <span> 남자 </span>   
 					<input type="checkbox" id="susoo_gender" name="susoo_gender" value="여자"> 
 					<img src="/resources/img/female.png" id="gendericonF" />  <span> 여자 </span>
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
                 <!-- 리셋 / 회원가입 -->
                 <div class="formbutton">
-                    <input type="reset" value="초기화" /> <input type="submit" value="회원 가입" />
+                    <input type="reset" value="초기화" /> <input id="submit" name="submit" type="submit" value="회원 가입" />
                 </div>
             </div>
             </div>

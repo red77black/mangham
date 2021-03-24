@@ -3,6 +3,28 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<<<<<<< HEAD
+<!-- 회원정보 처리 SQL -->
+<mapper namespace="com.sc.it.dao.SuSooWordMapper">
+
+<!-- 단어 생성 -->
+<insert id="insertWord" parameterType="word">
+insert into
+    susoo_word(
+        word_num
+        ,word
+        ,meaning
+        ,s_id
+        ,wordlist_num
+    )values(
+        word_num_seq.nextval
+        ,#{word}
+        ,#{meaning}
+        ,#{s_id}
+        ,#{wordlist_num}
+    )
+</insert>
+=======
 <mapper namespace="com.sc.it.dao.SuSooWordMapper">
 
 <select id="selectAllWord" parameterType="string" resultType="word">
@@ -65,4 +87,5 @@ and
 	checking = 2
 </select>
 
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 </mapper>
