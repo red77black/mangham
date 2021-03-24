@@ -57,30 +57,42 @@
 				<div class="col">
 					<div class="card h-100">
 						<div class="card-body">
-							<h5 class="card-title fw-bold"><a href="/word/words" style="color: black; text-decoration: none;">전체</a></h5>
+							<h5 class="card-title fw-bold">
+								<a href="/word/words" style="color: black; text-decoration: none;">
+									전체
+								</a>
+							</h5>
 						</div>
 						<div class="card-footer">
-							<small class="text-muted fw-bolder">234</small>
+							<small class="text-muted fw-bolder">${cnt }</small>
 						</div>
 					</div>
 				</div>
 				<div class="col">
 					<div class="card h-100">
 						<div class="card-body">
-							<h5 class="card-title fw-bold"><a href="/word/words" style="color: black; text-decoration: none;">미암기</a></h5>
+							<h5 class="card-title fw-bold">
+								<a href="/word/notMemoWords" style="color: black; text-decoration: none;">
+									미암기
+								</a>
+							</h5>
 						</div>
 						<div class="card-footer">
-							<small class="text-muted fw-bolder">233</small>
+							<small class="text-muted fw-bolder">${notMemoCnt }</small>
 						</div>
 					</div>
 				</div>
 				<div class="col">
 					<div class="card h-100">
 						<div class="card-body">
-							<h5 class="card-title fw-bolder"><a href="/word/words" style="color: black; text-decoration: none;">암기</a></h5>
+							<h5 class="card-title fw-bolder">
+								<a href="/word/memoWords" style="color: black; text-decoration: none;">
+									암기
+								</a>
+							</h5>
 						</div>
 						<div class="card-footer">
-							<small class="text-muted fw-bolder">1</small>
+							<small class="text-muted fw-bolder">${memoCnt }</small>
 						</div>
 					</div>
 				</div>
@@ -111,6 +123,14 @@
 						</tr>
 							</c:forEach>
 						<tr>
+<<<<<<< HEAD
+=======
+							<th scope="row">
+								<a href="/word/words" style="color: black; text-decoration: none;">명사</a>
+							</th>
+							<td></td>
+							<td></td>
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 							<td class="text-end">
 							</td>
 						</tr>

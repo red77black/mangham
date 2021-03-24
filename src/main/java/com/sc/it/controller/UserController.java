@@ -1,5 +1,6 @@
 package com.sc.it.controller;
 
+<<<<<<< HEAD
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -7,6 +8,11 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+=======
+import javax.servlet.http.HttpSession;
+
+import org.apache.ibatis.session.SqlSession;
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +31,8 @@ public class UserController {
 	
 	@Autowired
 	private SuSooUserService service;
+	@Autowired
+	private HttpSession session;
 	
 	//회원가입 폼
 	@RequestMapping(value = "/joinForm", method = RequestMethod.GET)
@@ -57,11 +65,16 @@ public class UserController {
 	
 	//로그인
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
+<<<<<<< HEAD
 	public String login(UserVO user, HttpSession session, boolean loginCheck, HttpServletResponse response, Model model) {
+=======
+	public String login(UserVO user, Model model) {
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 		UserVO vo = service.selectUser(user);
 		String errMsg = "";
 		
 		if(vo != null) {
+<<<<<<< HEAD
 			//session scope에 login 성공한 유저의 정보를 저장하는 것
 			logger.info("로그인 처리");
 			session.setAttribute("s_id", user.getS_id());
@@ -82,6 +95,14 @@ public class UserController {
 			errMsg = "정보가 틀리게 입력되었습니다.";
 			model.addAttribute("errMsg", errMsg);
 			return "/";
+=======
+			session.setAttribute("loginVO", vo);
+			session.setAttribute("loginID", vo.getS_id());
+		} else {
+			errMsg = "정보가 틀리게 입력되었습니다.";
+			model.addAttribute("errMsg", errMsg);
+			return "index";
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 		}
 		return "redirect:/home";
 	}
@@ -106,8 +127,17 @@ public class UserController {
 	@RequestMapping(value = "/findId", method = RequestMethod.GET)
 	public String findId(UserVO user, Model model) {
 		String id = service.findId(user);
-		model.addAttribute("s_id", id);
-		return "user/findIdForm";
+		String errMsg = "";
+		
+		if(id != null) {
+			model.addAttribute("s_id", id);
+			return "user/findIdForm";
+		} else {
+			errMsg = "정보가 틀리게 입력되었습니다.";
+			model.addAttribute("errMsg", errMsg);
+			return "user/findIdForm";
+		}
+		
 	}
 	
 	// 비밀번호 찾기 폼
@@ -120,9 +150,18 @@ public class UserController {
 	@RequestMapping(value = "/findPw", method = RequestMethod.GET)
 	public String findPw(UserVO user, Model model) {
 		String pw = service.findPw(user);
-		model.addAttribute("s_pw", pw);
-		return "user/findPwForm";
+		String errMsg = "";
+		
+		if(pw != null) {
+			model.addAttribute("s_pw", pw);
+			return "user/findPwForm";
+		} else {
+			errMsg = "정보가 틀리게 입력되었습니다.";
+			model.addAttribute("errMsg", errMsg);
+			return "user/findPwForm";
+		}
 	}
+	
 	//마이페이지 폼 이동
 	@RequestMapping(value = "/myPage", method = RequestMethod.GET)
 	public String myPage() {

@@ -11,7 +11,15 @@
    <script type="text/javascript">
    window.onload = function(){
 	   var pw = document.getElementById("s_pw").value;
-	   
+	   var err = document.getElementById("err").value;
+		
+		if (err == null || err.length == 0) {
+			return false;
+		} else {
+			alert('${errMsg}');
+			document.location.href = "/user/findPwForm";
+		}
+		
 	   if(pw == null || pw.length == 0){
 			return false;
 		}else {
@@ -49,6 +57,7 @@
                   </div>
               </form>
                   <input type="hidden" id = "s_pw" value="${s_pw }">
+                  <input type="hidden" id = "err" value="${errMsg }">
           </div>
       </div>
 

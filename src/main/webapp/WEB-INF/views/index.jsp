@@ -24,6 +24,20 @@
    function findPwFormCheck(){
 		location.href = "/user/findPwForm";
 	}
+
+   window.onload = function(){
+		var err = document.getElementById("err").value;
+		
+		if (err == null || err.length == 0) {
+			return false;
+		} else {
+			alert('id 혹은 pw가 틀렸습니다.');
+			document.location.href = "/";
+		}
+		return true;
+	}
+
+	
    </script>
   </head>
   <body>
@@ -48,6 +62,7 @@
                       <input type="submit" value="LOGIN">
                   </div>
               </form>
+              <input type="hidden" id="err" value="${errMsg }">
               <div class="field">
                   <input type="button" value="회원 가입" onclick="return joinFormCheck();">
               </div>
@@ -59,8 +74,9 @@
                   <input type="button" value="PW 찾기" onclick="return findPwFormCheck();" />
               </div>
           </div>
+          
       </div>
-
+	
     <script>
         
       const pass_field = document.querySelector('.pass-key');

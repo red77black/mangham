@@ -3,6 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<<<<<<< HEAD
 <!-- 회원정보 처리 SQL -->
 <mapper namespace="com.sc.it.dao.SuSooWordMapper">
 
@@ -23,4 +24,68 @@ insert into
         ,#{wordlist_num}
     )
 </insert>
+=======
+<mapper namespace="com.sc.it.dao.SuSooWordMapper">
+
+<select id="selectAllWord" parameterType="string" resultType="word">
+select * from
+    susoo_word
+where s_id = #{s_id}
+order by indate desc
+</select>
+
+<update id="updateMemoWord" parameterType="int">
+update 
+    susoo_word
+set
+    checking = 1
+where
+    word_num = #{word_num}
+</update>
+
+<update id="updateNotMemoWord" parameterType="int">
+update 
+    susoo_word
+set
+    checking = 2
+where
+    word_num = #{word_num}
+</update>
+
+<delete id="deleteWord" parameterType="int">
+delete from 
+	susoo_word
+where
+    word_num = #{word_num}
+</delete>
+
+<select id="countWord" parameterType="string" resultType="int">
+select count(*)
+from 
+	susoo_word
+where 
+	s_id = #{s_id}
+</select>
+
+<select id="countMemoWord" parameterType="string" resultType="int">
+select count(*)
+from 
+	susoo_word
+where 
+	s_id = #{s_id}
+and 
+	checking = 1
+</select>
+
+<select id="countNotMemoWord" parameterType="string" resultType="int">
+select count(*)
+from 
+	susoo_word
+where 
+	s_id = #{s_id}
+and 
+	checking = 2
+</select>
+
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 </mapper>

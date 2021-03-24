@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.sc.it.dao.SuSooUserDAO;
 import com.sc.it.vo.UserVO;
@@ -24,10 +25,19 @@ public class SuSooUserService {
 		return path;
 	}
 	
-
 	// 로그인
 	public UserVO selectUser(UserVO user) {
 		return dao.selectUser(user);
+<<<<<<< HEAD
+=======
+		
+	}
+	
+	// 로그아웃
+	public String userLogout() {
+		session.removeAttribute("loginVO");
+		return "redirect:/";
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 	}
 	
 	// ID 찾기

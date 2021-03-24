@@ -3,9 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
-<head>
-<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript">
+  <head>
+  <script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
   
 			function logout() {
 				if (confirm("로그아웃 하시겠습니까?")) {
@@ -33,30 +33,7 @@
 					$(this).css("background-color","#f8f9fa");
 				});
 			};
-
-			function changeCheck(checking, num){
-				
-			        $.ajax({
-			            url: "changeCheck",
-			            type: "POST",
-			            data: {
-			            	checking_num : checking,
-			            	word_num : num
-			            },
-			            success: function(){
-				            alert('성공')
-			            },
-			            error: function(){
-			                alert("err");
-			            }
-			        });
-			}
-			
-			
-			
-</script>
-	
-	
+		</script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -106,38 +83,29 @@
 	
 	<!-- content -->
 	<c:forEach items="${words }" var="words">
-		<div class="container">
-			<div class="row mt-2">
-				<div class="col" style="background-color: #f8f9fa">
-					<div class="card text-dark bg-light mb-3 mt-3">
-						<div id="word" class="card-header">${words.word }</div>
-						<div class="card-body">
-							<h5 id="meaning" class="card-title">${words.meaning }</h5>
+		<c:if test="${words.checking == 1 }">
+			<div class="container">
+				<div class="row mt-2">
+					<div class="col" style="background-color: #f8f9fa">
+						<div class="card text-dark bg-light mb-3 mt-3">
+							<div class="card-header">${words.word }</div>
+							<div class="card-body">
+								<h5 class="card-title">${words.meaning }</h5>
+							</div>
 						</div>
-					</div>
-					<div class="card text-dark bg-light mb-3">
-						<div class="card-body"> ${words.indate }
-							<a href="/word/deleteWord?word_num=${words.word_num }&num=0"><img
-								class="rounded float-end" alt="trash"
-								src="/resources/img/trashcan.png"></a>
-							<c:if test="${words.checking == 1 }">
-								<a href="#" onclick="changeCheck(${words.checking},${words.word_num });">
-								<img id="check1" class="rounded float-end me-2" alt="check"
-									src="/resources/img/check1.png" style="width: 22px"></a>
-							</c:if>
-							<c:if test="${words.checking == 2 }">
-								<a href="#" onclick="changeCheck(${words.checking},${words.word_num });">
-								<img id="check" class="rounded float-end me-2" alt="check"
-									src="/resources/img/check.png"></a>
-							</c:if>
+						<div class="card text-dark bg-light mb-3">
+							<div class="card-body">${words.indate }
+								<a href="/word/deleteWord?word_num=${words.word_num }&num=1"><img class="rounded float-end" alt="trash" src="/resources/img/trashcan.png"></a>
+								<a href="/word/toNotMemoWord?word_num=${words.word_num }"><img class="rounded float-end me-3" alt="check" src="/resources/img/check1.png" style="width: 22px"></a>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</c:if>
 	</c:forEach>
-
-
+	
+	
 	<!-- Pagination -->
 	<nav aria-label="Page navigation example">
 		<ul class="pagination justify-content-center mt-4">

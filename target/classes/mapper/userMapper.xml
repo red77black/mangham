@@ -79,6 +79,7 @@
 		s_email = #{s_email}
 </select>
 
+<!-- 회원정보변경 -->
 <update id="changeUser" parameterType="user">
 	update 
 	    susoo_user
@@ -91,6 +92,7 @@
 	    s_id = #{s_id}
 </update>
 
+<!-- 비번 변경 -->
 <update id="changePw" parameterType="user">
 	update 
 	    susoo_user

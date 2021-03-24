@@ -7,7 +7,11 @@
   <title>[메인화면]</title>
   <!-- 자바스크립트 번역 -->
   <script src="/resources/js/jquery-3.2.1.min.js"></script>
+<<<<<<< HEAD
 	<script type="text/javascript">		
+=======
+	<script type="text/javascript">
+>>>>>>> 11e4b0eef4a7c50c3f57e6fe26587a2cec124364
 	
 	$(function(){
 		$("#translate").on("click",function(){
