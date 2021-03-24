@@ -34,6 +34,7 @@ public class SuSooUserService {
 	// 로그아웃
 	public String userLogout() {
 		session.removeAttribute("loginVO");
+		session.removeAttribute("loginID");
 		return "redirect:/";
 	}
 	

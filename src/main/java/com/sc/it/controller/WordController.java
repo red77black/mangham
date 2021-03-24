@@ -94,14 +94,15 @@ public class WordController {
 	//비동기식 미/암기 처리
 	@RequestMapping(value = "/changeCheck", method = RequestMethod.POST)
 	@ResponseBody 
-	public String changeCheck(int checking_num, int word_num) {
+	public void changeCheck(int checking_num, int word_num, HttpSession session, Model model) {
 		System.out.println(word_num);
+		
 		if(checking_num == 1) {
 			service.updateNotMemoWord(word_num); 
 		}else if(checking_num == 2) {
 			service.updateMemoWord(word_num);
 		}
-		return null;
+		
 	}
 		 
 	 

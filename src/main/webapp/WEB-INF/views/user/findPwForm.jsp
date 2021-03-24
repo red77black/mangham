@@ -12,22 +12,19 @@
    window.onload = function(){
 	   var pw = document.getElementById("s_pw").value;
 	   var err = document.getElementById("err").value;
-		
-		if (err == null || err.length == 0) {
+
+	   if(pw.length == 0 && err.length == 0){
 			return false;
-		} else {
-			alert('${errMsg}');
+		}else if(pw.length != 0){
+			alert('당신의 PW는 ' + pw + ' 입니다.');
+			document.location.href = "/";
+		}else if(err.length != 0){
+			alert(err);
 			document.location.href = "/user/findPwForm";
 		}
 		
-	   if(pw == null || pw.length == 0){
-			return false;
-		}else {
-			alert('당신의 PW는 ' + pw + ' 입니다.');
-			document.location.href = "/";
-		}
-		return true;
-	}
+	return true;
+   }
    </script>
   </head>
   <body>

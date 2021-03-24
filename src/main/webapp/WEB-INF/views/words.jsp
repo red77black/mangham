@@ -44,7 +44,14 @@
 			            	word_num : num
 			            },
 			            success: function(){
-				            alert('성공')
+							if(checking == 1){
+								 $("."+num).attr("src","/resources/img/check.png");
+								 $("."+num).attr("style","width: 22px");
+							}else if(checking == 2){
+								 $("."+num).attr("src","/resources/img/check1.png");
+								 $("."+num).attr("style","width: 22px");
+							}
+				           
 			            },
 			            error: function(){
 			                alert("err");
@@ -122,12 +129,12 @@
 								src="/resources/img/trashcan.png"></a>
 							<c:if test="${words.checking == 1 }">
 								<a href="#" onclick="changeCheck(${words.checking},${words.word_num });">
-								<img id="check1" class="rounded float-end me-2" alt="check"
+								<img id="check1" class="rounded float-end me-2 ${words.word_num }" alt="check"
 									src="/resources/img/check1.png" style="width: 22px"></a>
 							</c:if>
 							<c:if test="${words.checking == 2 }">
 								<a href="#" onclick="changeCheck(${words.checking},${words.word_num });">
-								<img id="check" class="rounded float-end me-2" alt="check"
+								<img id="check" class="rounded float-end me-2 ${words.word_num }" alt="check"
 									src="/resources/img/check.png"></a>
 							</c:if>
 						</div>

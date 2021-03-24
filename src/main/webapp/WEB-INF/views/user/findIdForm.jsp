@@ -9,26 +9,23 @@
     <link rel="stylesheet" href="/resources/css/idStyle.css">
    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
    <script type="text/javascript">
-	window.onload = function(){
-		var id = document.getElementById("id").value;
-		var err = document.getElementById("err").value;
-		
-		if (err == null || err.length == 0) {
+   window.onload = function(){
+	   var id = document.getElementById("s_id").value;
+	   var err = document.getElementById("err").value;
+
+	   if(id.length == 0 && err.length == 0){
 			return false;
-		} else {
-			alert('${errMsg}');
+		}else if(id.length != 0){
+			alert('당신의 id는 ' + id + ' 입니다.');
+			document.location.href = "/";
+		}else if(err.length != 0){
+			alert(err);
 			document.location.href = "/user/findIdForm";
 		}
 		
-		if (id == null || id.length == 0) {
-			return false;
-		} else {
-			alert('당신의 아이디는 : ' + id + ' 입니다.');
-			document.location.href = "/";
-		}
-		return true;
-	}
-	</script>
+	return true;
+   }
+</script>
   </head>
   <body>
       <div class="bg-img">
@@ -56,7 +53,7 @@
                       <input type="button" value="뒤로가기" onclick="history.back(-1)"/> <input type="submit" value="ID 찾기"/>
                   </div>
               </form>
-                  <input type="hidden" id="id" value="${s_id }">
+                  <input type="hidden" id="s_id" value="${s_id }">
                   <input type="hidden" id="err" value="${errMsg }">
 		</div>
       </div>
